@@ -5,3 +5,5 @@ zipp.sql
 user/media/
 user/logs/
 README.txt
+.htpasswd
+sitemap.xml
