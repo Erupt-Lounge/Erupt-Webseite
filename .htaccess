@@ -1,0 +1,30 @@
+RewriteEngine On
+
+### WWW START ###
+RewriteCond %{HTTP_HOST} !^localhost
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+### WWW END ###
+
+### SSL START ###
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^localhost
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+### SSL END ###
+
+### CUSTOM (302 = temporary) ###
+#RewriteCond %{HTTPS} on
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
+#RewriteCond %{HTTP_HOST} ^erupt\.ch$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.erupt\.ch$
+#RewriteRule ^(.*)$ "https\:\/\/www\.erupt\.ch\/$1" [R=302,L]
+### CUSTOM END ###
+
+# @package: Zipp
+# @version: 0.2.1 <2019-08-07>
+# @installedOn: <2021-01-29>
+RewriteCond %{REQUEST_URI} !\.(css|js|map|mjs|ico|png|jpg|svg|gif|mp3|wav|ogg|mp4|mov|ogv|doc|docx|txt|rtf|pdf|ttf|otf|woff|woff2|eot|zip|rar|gz|xml|json)$
+RewriteRule .* index.php [L]
+
+
