@@ -1,0 +1,21 @@
+<header |if !ctn.bgImage|class="no-image"|end|>
+
+	<div class="wrapper single" |if ctn.bgImage|style="background-image: url('|ctn.bgImage.src(1920, 1080)|')"|end|>
+
+		|if !ctn.displayTitle|
+			<h1>|esc page.title|</h1>
+		|end|
+
+	</div>
+
+	|if ctn.fixedButton|
+		<a class="button fixed" href="|ctn.fixedButtonLink|">
+			<div class="border">
+				<div class="background">
+					<p class="gradient-text">|ctn.fixedButton|</p>
+				</div>
+			</div>
+		</a>
+	|end|
+
+</header>

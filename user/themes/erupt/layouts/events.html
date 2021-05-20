@@ -1,0 +1,40 @@
+|block 'main'|
+
+	|if ctn.dark|
+	<script>document.body.classList.add('dark');</script>
+	|end|
+
+	|comp 'header'|
+
+	<div class="container events">
+
+		<div class="text">
+			<h1>|esc ctn.textTitle|</h1>
+			<div class="editor-text">
+				|ctn.text|
+			</div>
+		</div>
+
+		<div class="wrapper">
+
+			|events = newQuery().byLayouts(['event']).orderDesc('publishOn').full()|
+			|for event in events|
+			<a href="|event.url|" class="event |event.type|-event">
+				|img = event.header.bgImage|
+				|if img|
+				<img src="|event.header.bgImage.src()|">
+				|end|
+				<div class="text">
+					<h2>|event.title|</h2>
+					<p>|replace "\n", '<br>', esc( event.previewText )|</p>
+				</div>
+			</a>
+			|end|
+
+		</div>
+
+	</div>
+
+|end|
+
+|inc 'templ/main'|

@@ -1,0 +1,338 @@
+assets
+	css -a: style.mgcss
+	js -a: main
+
+components
+	landingheader
+		name: 'header
+
+		fields
+			leftImg
+				type: SingleFile
+				name: 'leftImage
+				selectBtn: 'select
+				allowed -a: jpg, png, gif
+				notAllowed: 'onlyImageAllowed
+
+			leftText
+				name: 'leftTitle
+
+			leftPage
+				type: Page
+				name: 'leftPage
+				layouts -a: modpage
+
+			rightImg
+				type: SingleFile
+				name: 'rightImage
+				selectBtn: 'select
+				allowed -a: jpg, png, gif
+				notAllowed: 'onlyImageAllowed
+
+			rightText
+				name: 'rightTitle
+
+			rightPage
+				type: Page
+				name: 'rightPage
+				layouts -a: modpage
+
+			fixedButton
+				name: 'fixedButton
+
+			fixedButtonLink
+				name: 'fixedButtonLink
+
+	header
+		name: 'header
+
+		fields
+			displayTitle
+				type: Checkbox
+				name: 'displayTitle
+
+			bgImage
+				type: SingleFile
+				name: 'bgImage
+				selectBtn: 'select
+				allowed -a: jpg, png, gif
+				notAllowed: 'onlyImageAllowed
+
+			fixedButton
+				name: 'fixedButton
+
+			fixedButtonLink
+				name: 'fixedButtonLink
+
+
+	modcomponents
+		name: 'modComponents
+
+		fields
+			sections
+				type: MultipleRepeat
+				name: 'sections
+				addBtn: 'addSection
+				removeBtn: 'removeSection
+
+				fields
+					type
+						type: DropDown
+						name: 'typeField
+						options
+							flowtext: Text
+							textcenter: Text zentriert
+							eventsgaming: Events Gaming
+							eventslounge: Events Lounge
+							iframe: iFrame
+							sponsor: Sponsor
+
+					pTitle
+						name: 'sectionTitle
+
+					text
+						type: Editor
+						name: 'sectionText
+
+					image
+						type: SingleFile
+						name: 'modImage
+						selectBtn: 'select
+						allowed -a: jpg, png, gif
+						notAllowed: 'onlyImageAllowed
+
+					linkText
+						name: 'linkText
+
+					link
+						name: 'link
+
+
+layouts
+	landing
+		name: 'landing
+		components -a: landingheader, modcomponents
+
+	modpage
+		name: 'modPage
+		components -a: header, modcomponents
+
+		fields
+			dark
+				type: Checkbox
+				name: 'switchDark
+
+	event
+		name: 'eventPage
+		cache: true
+		components -a: header, modcomponents
+
+		fields
+			type
+				type: DropDown
+				name: 'eventType
+				options
+					gaming: Gaming
+					lounge: Lounge
+
+			previewText
+				type: Textarea
+				name: 'previewText
+
+			dark
+				type: Checkbox
+				name: 'switchDark
+
+	events
+		name: 'eventsPage
+		components -a: header
+
+		fields
+			textTitle
+				name: 'textTitle
+
+			text
+				type: Editor
+				name: 'mainText
+
+			dark
+				type: Checkbox
+				name: 'switchDark
+
+	logos
+		name: 'logosPage
+		components -a: header
+
+		fields
+			textTitle
+				name: 'textTitle
+
+			text
+				type: Editor
+				name: 'mainText
+
+			logosGrid
+				type: MultipleRepeat
+				name: 'logosText
+				addBtn: 'addLogo
+				removeBtn: 'removeLogo
+
+				fields
+					Image
+						type: SingleFile
+						name: 'logo
+						selectBtn: 'select
+						allowed -a: jpg, png, gif
+						notAllowed: 'onlyImageAllowed
+
+					link
+						name: 'link
+
+			dark
+				type: Checkbox
+				name: 'switchDark
+
+	contact
+		name: 'contactPage
+		components -a: header
+
+		fields
+			textTitle
+				name: 'textTitle
+
+			text
+				type: Editor
+				name: 'mainText
+
+			firstname
+				name: 'contactFirstname
+
+			lastname
+				name: 'contactLastname
+
+			email
+				name: 'contactEmail
+
+			message
+				name: 'contactMessage
+
+			recaptchaKey
+				name: 'recaptchaKey
+
+			recaptchaSecretKey
+				name: 'recaptchaSecretKey
+
+			submit
+				name: 'contactSend
+
+			errorText
+				name: 'contactErrorText
+
+			mailTo
+				name: 'contactMailTo
+
+			dark
+				type: Checkbox
+				name: 'switchDark
+
+settings
+	main
+		name: 'main
+		fields
+			navigation
+				type: Navigation
+				name: 'topNavi
+				layouts -a: landing, modpage, events, logos, contact
+				addBtn: 'navAddBtn
+				selectTitle: 'navSelectTitle
+				selectBtn: 'select
+				selectCancel: 'cancel
+
+			registerBtn
+				name: 'registerBtn
+
+			registerLink
+				name: 'registerLink
+
+			footerLogos
+				type: MultipleRepeat
+				name: 'footerLogos
+				addBtn: 'addFooterLogo
+				removeBtn: 'removeFooterLogo
+
+				fields
+					Image
+						type: SingleFile
+						name: 'sponsorLogo
+						selectBtn: 'select
+						allowed -a: jpg, png, gif
+						notAllowed: 'onlyImageAllowed
+
+					link
+						name: 'link
+
+			box1Title
+				name: 'box1Title
+
+			box1Links
+				type: MultipleRepeat
+				name: 'links
+				addBtn: 'addLink
+				removeBtn: 'removeLink
+
+				fields
+					linkText
+						type: Textarea
+						name: 'linkText
+
+					link
+						name: 'link
+
+			box2Title
+				name: 'box1Title
+
+			box2Links
+				type: MultipleRepeat
+				name: 'links
+				addBtn: 'addLink
+				removeBtn: 'removeLink
+
+				fields
+					linkText
+						type: Textarea
+						name: 'linkText
+
+					link
+						name: 'link
+
+			footerNavi
+				type: Navigation
+				name: 'footerNavi
+				layouts -a: modpage
+				addBtn: 'navAddBtn
+				selectTitle: 'navSelectTitle
+				selectBtn: 'select
+				selectCancel: 'cancel
+
+			smInstagram
+				name: 'instagramName
+
+			smFacebook
+				name: 'facebookName
+
+			smTwitter
+				name: 'twitterName
+
+			copyrightText
+				name: 'copyrightText
+
+pageCategories
+	main
+		pluralName: 'mainPages
+		singleName: 'mainPage
+		layouts -a: landing, modpage, events, logos, contact
+
+	events
+		pluralName: 'eventNames
+		singleName: 'eventName
+		layouts -a: event

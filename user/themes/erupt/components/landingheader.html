@@ -1,0 +1,29 @@
+<header>
+		
+	<div class="wrapper">
+		
+		<div class="cat-box" id="cat-one" style="background-image: url('|ctn.leftImg.src(1920, 1080)|')">
+			<a href="|ctn.leftPage.url|"><h1>|esc ctn.leftText|</h1></a>
+		</div>
+
+		<div class="cat-box" id="cat-two" style="background-image: url('|ctn.rightImg.src(1920, 1080)|')">
+			<a href="|ctn.rightPage.url|"><h1>|esc ctn.rightText|</h1></a>
+		</div>
+
+		<div id="signet">
+			<img src="|theme.url('assets/img/erupt-signet.svg')|" alt="Erupt Signet">
+		</div>
+
+	</div>
+
+	|if ctn.fixedButton|
+		<a class="button fixed" href="|ctn.fixedButtonLink|">
+			<div class="border">
+				<div class="background">
+					<p class="gradient-text">|ctn.fixedButton|</p>
+				</div>
+			</div>
+		</a>
+	|end|
+
+</header>

@@ -1,0 +1,48 @@
+++ theme settings pages
+++ pages "categories"
+// media page
+- upload
+- upload multiple
+- select
+- select multiple
+- popup select
+
+
+
+// navigation
+// prefix url > ???
+// more fields
+
+// Theme dropdown
+// install screen
+
+// extends lang from url to domain
+
+// home screen
+// statistics (logs)
+// users admin panel
+// plugin api (with example contact form)
+// preview function (disable cache with logged in users)
+// online file editor??
+// backup
+// seo
+// remove keywords???
+// Search "engine"
+// login block after 10
+
+// auto update
+// download plugins
+
+// Lets build an example site, Blog!!
+
+
+// php sends every data 
+
+// on request
+//// admin checks if is a http or ajax request
+
+// if is http > returns html template with 
+// if http is loaded javascript fetches the same page again
+
+// if is ajax > return {{ headerFields, contentFields, footerFields }}
+// what about language and templates

@@ -1,0 +1,68 @@
+|form = theme.handleContact()|
+
+|if form.success|
+	|redirect ctn.successPage.url|
+|end|
+
+|block 'scripts'|
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+|end|
+
+|block 'main'|
+
+	|if ctn.dark|
+	<script>document.body.classList.add('dark');</script>
+	|end|
+
+	|comp 'header'|
+
+	<div class="container contact">
+
+		<div class="text">
+			<h1>|esc ctn.textTitle|</h1>
+			<div class="editor-text">
+				|ctn.text|
+			</div>
+		</div>
+
+		<div class="wrapper">
+
+			|if form.submitted|
+			<div class="contact-status">
+				
+				|if form.success|
+				<h3 class="green">Ihre Nachricht wurde versendet!</h3>
+				|else|
+				<h3 class="red">|esc ctn.errorText|</h3>
+				|end|
+				
+			</div>
+			|end|
+
+			<section class="info-contact">
+
+				<form method="POST" >
+
+					<input class="small-input" type="text" placeholder="|esc ctn.firstname|" name="firstname" minlength="2" required value="|esc form.firstname|">
+
+					<input class="small-input" type="text" placeholder="|esc ctn.lastname|" name="lastname" minlength="2" required value="|esc form.lastname|">
+
+					<input type="email" placeholder="|esc ctn.email|" name="email" minlength="5" required value="|esc form.email|">
+
+					<textarea placeholder="|esc ctn.message|" name="message" minlength="15" required>|esc form.message|</textarea>
+
+					<div class="g-recaptcha" data-sitekey="|ctn.recaptchaKey|"></div>
+
+					<input class="submit" type="submit" value="|esc ctn.submit|" name="submit">
+
+				</form>
+
+			</section>
+
+		</div>
+
+	</div>
+
+|end|
+
+|inc 'templ/main'|

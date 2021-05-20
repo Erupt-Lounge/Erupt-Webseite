@@ -1,0 +1,5 @@
+host: localhost
+name: <database-name>
+user: <username>
+prefix: <database-prefix>
+password: <password>

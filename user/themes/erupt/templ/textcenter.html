@@ -1,0 +1,38 @@
+<div class="container center-text">
+		
+	<div class="corner top-left">
+		<span></span>
+		<span></span>
+	</div>
+
+	<div class="corner bottom-right">
+		<span></span>
+		<span></span>
+	</div>
+
+	<div class="text">
+
+		<h1>|section.pTitle|</h1>
+
+		<div class="editor-text">
+			|section.text|
+		</div>
+
+		|if section.image|
+			|section.image.setLang( page.lang )|
+			<img src="|section.image.src()|">
+		|end|
+
+		|if section.link|
+		<a class="button" href="|section.link|">
+			<div class="border">
+				<div class="background">
+					<p class="gradient-text">|section.linkText|</p>
+				</div>
+			</div>
+		</a>
+		|end|
+
+	</div>
+
+</div>

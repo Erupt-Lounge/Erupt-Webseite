@@ -1,0 +1,991 @@
+:root
+	--white: #fff
+	--black: #000
+	--lightgray: #eeece9
+	--dark: #3d3935
+	--light-dark: #524e4b
+	--red: #c73358
+	--blue: #26777b
+	--gold: #ceb888
+
+*
+	@core
+	font-family: "roboto", sans-serif
+	font-size: 17px
+	color: --dark
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+
+body
+	<1400px
+		--place: holder
+
+	<1000px
+		--place: holder
+
+	<850px
+		--place: holder
+
+	<750px
+		--place: holder
+
+	<500px
+		--place: holder
+
+/*
+Predefined
+*/
+
+h1
+	font-family: "termina", sans-serif
+	font-size: 30px
+	font-weight: 700
+	font-style: normal
+	text-transform: uppercase
+	margin-bottom: 25px
+
+	<850px
+		font-size: 20px
+
+p
+	font-weight: 400
+	font-size: 17px
+	font-style: normal
+
+	<850px
+		font-size: 14px
+
+a
+	font-size: 17px
+	text-decoration: none
+
+	<850px
+		font-size: 14px
+
+.button
+	display: grid
+	place-items: center
+
+	.border
+		padding: 1px
+		background: linear-gradient(-90deg, var( --blue ) 0%, var( --red ) 100%)
+		border-radius: 50px
+
+	.background
+		background-color: --white
+		padding: 10px 25px
+		border-radius: 50px
+		transition: .3s
+
+	.gradient-text
+		background: linear-gradient(90deg, rgba(199,51,88,1) 0%, rgba(38,119,123,1) 100%)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+		transition: .3s
+
+	:hover
+		.background
+			background-color: rgba(0,0,0,0)
+
+		.gradient-text
+			background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%)
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+
+.corner
+	@absolute
+	width: 75px
+	height: 75px
+
+	<850px
+		width: 50px
+		height: 50px
+
+	<500px
+		width: 40px
+		height: 40px
+
+	span:nth-child(1)
+		@block
+		width: 100%
+		height: 5px
+
+	span:nth-child(2)
+		@block
+		width: 5px
+		height: 100%
+
+.top-left
+	top: 75px
+	left: 75px
+
+	<850px
+		top: 50px
+		left: 50px
+
+	<500px	
+		top: 25px
+		left: 25px
+
+	span
+		background-color: --red
+
+.bottom-right
+	bottom: 75px
+	right: 75px
+	transform: rotate(180deg)
+
+	<850px
+		bottom: 50px
+		right: 50px
+
+	<500px
+		bottom: 25px
+		right: 25px
+
+	span
+		background-color: --blue
+
+.container
+	@relative
+	padding: 75px
+
+	<850px
+		padding: 50px
+
+	<500px
+		padding: 25px
+
+/*
+Navigation
+*/
+
+nav
+	@fixed
+	@flex
+	z-index: 999
+	width: 100%
+	padding: 20px 75px
+	background-color: --white
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3)
+	justify-content: space-between
+	align-items: center
+
+	<850px
+		padding: 0
+		height: 70px
+
+	.logo
+		width: 150px
+
+		<850px
+			@absolute
+			width: 100%
+			height: 70px
+			background-color: --white
+			top: 0
+			left: 0
+
+		img
+			width: 100%
+			display: block
+
+			<850px
+				@absolute
+				top: 50%
+				left: 50px
+				width: 100px
+				transform: translateY(-50%)
+
+			<500px
+				left: 25px
+
+	.burger
+		@absolute
+		display: none
+		z-index: 999
+		width: 30px
+		top: 35px
+		right: 50px
+		transform: translateY(-50%)
+
+		<850px
+			@block
+
+		<500px
+			right: 25px
+
+		span
+			@block
+			width: 100%
+			height: 3px
+			margin-bottom: 5px
+			background-color: --dark
+			transition: .3s var( --ease )
+
+			:last-child
+				margin-bottom: 0
+
+	.open
+		span:nth-child(1)
+			top: 50%
+			transform: translateY( calc( -50% + 8px ) ) rotate( 45deg )
+
+		span:nth-child(2)
+			opacity: 0
+
+		span:nth-child(3)
+			top: 50%
+			transform: translateY( calc( -50% - 8px ) ) rotate( -45deg )
+
+	.nav-points
+		@flex
+		text-align: right
+		align-items: center
+
+		<850px
+			@absolute
+			@block
+			z-index: -1
+			width: 100%
+			top: 70px
+			text-align: left
+			left: 0
+			padding: 0 50px
+			background-color: --white
+			transform: translateY(-100%)
+			transition: ease .5s
+
+		<500px
+			padding: 0 25px
+
+		a
+			text-decoration: none
+			padding-right: 20px
+			transition: .3s ease
+
+			<850px
+				@block
+				width: 100%
+				font-size: 20px
+				margin-bottom: 20px
+
+				:last-child
+					padding: 0
+					margin-bottom: 20px
+					text-align: center
+
+			:hover:not(last-child)
+				color: --red
+
+			:last-child
+				padding: 0 0 0 20px
+
+		a.active
+			color: --red
+
+		.gradient-text
+			<850px
+				font-size: 20px
+
+	.show
+		<850px
+			transform: translateY(0)
+			box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3)
+
+/*
+Main
+*/
+
+header
+	width: 100%
+	height: 100vh
+	padding: 0 75px
+
+	<850px
+		padding: 0 50px
+
+	<500px
+		padding: 0 25px
+
+	.wrapper
+		@flex
+
+		.cat-box
+			@relative
+			width: 50%
+			height: 100vh
+			background-size: cover
+			background-position: center center
+			background-repeat: no-repeat
+			transition: .5s ease
+
+		#cat-one
+			::after
+				@block
+				@absolute
+				@ctn
+				width: 100%
+				height: 100%
+				background-color: --red
+				opacity: .5
+				top: 50%
+				left: 50%
+				transform: translate(-50%,-50%)
+
+		#cat-two
+			::before
+				@block
+				@absolute
+				@ctn
+				z-index: 1
+				width: 100%
+				height: 100%
+				background-color: --blue
+				opacity: .5
+				top: 50%
+				left: 50%
+				transform: translate(-50%,-50%)
+
+		a:hover h1:after
+			width: 100%
+
+		h1
+			@absolute
+			z-index: 2
+			color: --white
+			top: 50%
+			left: 50%
+			transform: translate(-50%,-50%)
+
+			:after
+				@block
+				@ctn
+				@absolute
+				width: 0
+				height: 3px
+				background-color: --white
+				bottom: 5px
+				transition: width ease .5s
+
+
+
+		#signet
+			@absolute
+			z-index: 3
+			width: 350px
+			left: 50%
+			top: 50%
+			transform: translate(-50%,-50%)
+			transition: .5s ease
+
+			<1400px
+				width: 300px
+
+			<1000px
+				width: 200px
+
+			<850px
+				width: 100px
+
+			<500px
+				display: none
+
+	.single
+		height: 100vh
+		background-size: cover
+		background-position: center center
+
+		h1::after
+			display: none
+
+header.no-image
+	height: auto
+	padding: 85px 0 0 0
+
+	<850px
+		padding: 70px 0 0 0
+
+	.wrapper
+		@block
+		height: auto
+
+	h1
+		@relative
+		color: --dark
+		top: unset
+		left: unset
+		transform: unset
+		text-align: center
+		margin: 50px 0 0 0
+
+/*
+Center Text
+*/
+
+.center-text
+	@flex
+	justify-content: space-around
+
+	.text
+		text-align: center
+		padding: 100px 0
+		width: 50%
+
+		ul
+			list-style-position: inside
+
+		img
+			margin-top: 50px 
+			width: 100%
+
+		<850px
+			padding: 75px 0
+			width: 75%
+
+		<500px
+			width: 100%
+
+	.button
+		margin-top: 50px
+
+/*
+Gallery
+*/
+
+.gallery
+	@relative
+	background-color: --lightgray
+	padding: 175px 75px
+	text-align: center
+
+	<850px
+		padding: 150px 50px
+
+	<500px
+		padding: 100px 25px
+
+	::before
+		@block
+		@absolute
+		@ctn
+		z-index: -1
+		width: 100%
+		height: 40vh
+		background-image: url("../../../user/themes/erupt/assets/img/spikes.png")
+		background-size: cover
+		background-position: bottom center
+		bottom: 100%
+		left: 0
+
+	::after
+		@block
+		@absolute
+		@ctn
+		z-index: -1
+		width: 100%
+		height: 40vh
+		background-image: url("../../../user/themes/erupt/assets/img/spikes.png")
+		background-size: cover
+		background-position: bottom center
+		top: 100%
+		left: 0
+		transform: rotate(180deg)
+
+	.wrapper
+		@grid
+		grid-template-columns: repeat(3, 1fr)
+		grid-gap: 50px
+		margin-bottom: 50px
+
+		<850px
+			grid-template-columns: 1fr
+
+		.box
+			@relative
+			width: 100%
+			height: 300px
+			overflow: hidden
+			background-size: cover
+
+			<1000px
+				height: 200px
+
+			<850px
+				width: 60%
+				height: 250px
+				margin: auto
+
+			<750px
+				width: 100%
+
+			.content
+				@absolute
+				background-color: --red
+				width: 100%
+				height: 100%
+				padding: 25px
+				top: 0
+				left: 0
+				text-align: left
+				transform: translateY( calc( 100% - 70px ) )
+				transition: ease .5s
+
+				<1000px
+					padding: 15px
+					transform: translateY( calc( 100% - 50px ) )
+
+				:hover
+					transform: none
+
+				h2
+					color: --white
+					margin-bottom: 25px
+
+				span
+					@block
+					width: 75px
+					height: 1px
+					background-color: --white
+					margin-bottom: 25px
+
+				p
+					color: --white
+
+	.button 
+		.background
+			background-color: --lightgray
+
+		:hover
+			.background
+				background-color: rgba(0,0,0,0)
+
+/*
+Flow Text
+*/
+
+.flow-text
+	.content
+		@grid
+		grid-template-columns: 1fr 3fr
+		padding: 100px 0
+
+		<1400px
+			grid-template-columns: 1fr 2fr
+
+		<850px
+			padding: 75px 0
+			grid-template-columns: 1fr
+
+	.title
+		padding: 0 75px
+
+		<850px
+			padding: 0 50px
+
+		<500px
+			padding: 0
+
+	.text
+		width: 50%
+
+		<1400px
+			width: calc( 100% - 75px )
+
+		<850px
+			width: 100%
+			padding: 0 50px
+
+		<500px
+			padding: 0
+
+	img
+		width: 50%
+		margin-top: 50px
+		grid-column: 2
+		grid-row: 2
+
+		<1400px
+			width: calc( 100% - 75px )
+
+		<850px
+			width: 100%
+			padding: 0 50px
+			grid-column: 1
+			grid-row: 3
+
+		<500px
+			padding: 0
+
+	.button
+		grid-column-start: 2
+		grid-column-end: 3
+		padding-top: 50px
+		place-items: start
+
+/*
+Video
+*/
+
+.iframe
+	.content
+		text-align: center
+		margin: auto
+		padding: 100px 0
+		width: 50%
+
+		<850px
+			padding: 75px 0
+			width: 75%
+
+		<500px
+			width: 100%
+
+		p, .editor-text
+			margin: 0 auto 50px auto
+
+		.wrapper
+			@relative
+			width: 100%
+			padding-bottom: 56%
+			height: 0
+			margin: auto
+
+			iframe
+				@absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+
+/*
+Events
+*/
+
+.events
+	>.text
+		width: 50%
+		margin: auto
+		text-align: center
+
+		<850px
+			width: 75%
+
+		<500px
+			width: 100%
+
+	.wrapper
+		@grid
+		grid-template-columns: repeat(4, 1fr)
+		grid-gap: 50px
+		padding: 100px 0
+
+		<1400px
+			grid-gap: 25px
+
+		<1000px
+			grid-template-columns: repeat(3, 1fr)
+
+		<750px
+			grid-template-columns: repeat(2, 1fr)
+
+		<500px
+			grid-template-columns: 1fr
+
+		.event
+			img
+				width: 100%
+
+			.text
+				margin: 20px 20px
+				overflow: hidden
+				text-overflow: ellipsis
+				display: -webkit-box
+				-webkit-line-clamp: 3
+				-webkit-box-orient: vertical
+
+				h2
+					color: --white
+					padding-bottom: 10px
+
+				p
+					color: --white
+
+		.gaming-event
+			background-color: --red
+
+		.lounge-event
+			background-color: --blue
+
+/*
+Sponsors
+*/
+
+.logos
+	h1
+		text-align: center
+
+	.editor-text
+		margin-bottom: 50px
+		text-align: center
+
+	.wrapper
+		padding: 100px 75px
+
+		<850px
+			padding: 75px 50px
+
+	.grid
+		@grid
+		grid-template-columns: repeat( 5, 1fr )
+		grid-gap: 50px
+
+		<850px
+			grid-template-columns: repeat( 2, 1fr )
+			grid-gap: 25px
+
+		.logo
+			padding: 10px
+
+			img
+				@block
+				width: 100%
+				max-width: 200px
+				margin: auto
+
+/*
+Contact
+*/
+
+.contact
+	.text
+		width: 50%
+		text-align: center
+		margin: auto
+		margin-bottom: 50px
+
+		<850px
+			width: 100%
+
+.info-contact
+	form
+		width: 50%
+		margin: auto
+
+		<850px
+			width: 100%
+
+		label
+			@block
+			margin-bottom: 25px
+
+		input, textarea
+			@block
+			width: 100%
+			padding: 10px 25px
+			margin-bottom: 25px
+			border: 1px solid var( --dark )
+			border-radius: 5px
+			-webkit-appearance: none
+
+		textarea
+			min-height: 200px
+			max-height: 400px
+			resize: vertical
+
+		.small-input
+			display: inline-block
+			width: calc( 50% - 5px )
+
+			+[name = "surname"]
+				margin-left: 5px
+
+		.g-recaptcha
+			@flex
+			justify-content: center
+			padding-bottom: 25px
+
+		.submit
+			width: auto
+			margin: auto
+			cursor: pointer
+			background-color: --blue
+			color: --white
+			border: 1px solid var( --blue )
+			transition: .3s ease
+
+			:hover
+				background-color: --white
+				color: --blue
+
+.contact-status
+	text-align: center
+
+	.green
+		color: --green
+
+	.red
+		color: --red
+
+/*
+Footer
+*/
+
+.footer
+	padding: 75px
+	background-color: --dark
+
+	<850px
+		padding: 50px
+
+	svg
+		@block
+		width: 75px
+		margin-bottom: 50px
+
+	.footer-logos
+		@grid
+		grid-template-columns: repeat( 4, 1fr )
+		margin-bottom: 50px
+
+		.footer-logo
+			padding: 10px 25px 10px 0
+
+			img
+				@block
+				width: 75%
+				max-width: 200px
+
+	.wrapper
+		@grid
+		grid-template-columns: repeat(4, 1fr)
+
+		<750px
+			grid-template-columns: repeat(2, 1fr)
+
+		.info
+			<750px
+				margin: 0 20px 50px 0
+
+		a
+			display: block
+
+		a:hover
+			text-decoration: underline
+
+		h3, a
+			color: --white
+
+		.some
+			width: 30px
+			height: 30px
+			float: right
+			margin-left: 20px
+			background-size: cover
+
+			<750px
+				float: left
+				margin: 0 20px 0 0
+
+			<500px
+				margin: 0 5px 0 0
+
+			:last-child
+				margin-left: 0
+
+		#instagram
+			background-image: url('../../../user/themes/erupt/assets/img/instagram.svg')
+		
+		#facebook
+			background-image: url('../../../user/themes/erupt/assets/img/facebook.svg')
+
+		#twitter
+			background-image: url('../../../user/themes/erupt/assets/img/twitter.svg')
+
+	h4
+		font-weight: 300
+		color: --light-dark
+		float: right
+
+		<750px
+			float: left
+
+/*
+Fixed Button
+*/
+
+.fixed
+	z-index: 999
+	position: fixed
+	bottom: 50px
+	left: 50%
+	transform: translateX( -50% )
+
+	.border
+		box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3)
+
+/*
+Dark
+*/
+
+.dark
+	background-color: --dark
+
+	.text span
+		color: --white !important
+
+	.container
+		h1, h2, p, ul li, .editor-text, .text
+			color: --white !important
+
+	.button
+		.border
+			background: linear-gradient(-90deg, var( --blue ) 0%, var( --red ) 100%)
+
+		.background
+			background-color: rgba(0,0,0,0)
+
+		.gradient-text
+			background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 100%)
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+
+		:hover
+			.background
+				background-color: rgba(255,255,255,1)
+
+			.gradient-text
+				background: linear-gradient(90deg, rgba(199,51,88,1) 0%, rgba(38,119,123,1) 100%)
+				-webkit-background-clip: text
+				-webkit-text-fill-color: transparent
+
+	.gallery
+		background-color: --light-dark
+
+		::before
+			background-image: url('../../../user/themes/erupt/assets/img/spikes-dark.png')
+
+		::after
+			background-image: url('../../../user/themes/erupt/assets/img/spikes-dark.png')
+
+	.events
+		.event
+			background-color: --light-dark
+
+	.footer
+		background-color: --white
+
+		svg path
+			fill: --dark
+
+		h3, a
+			color: --dark
+
+		#instagram
+			background-image: url('../../../user/themes/erupt/assets/img/instagram-dark.svg')
+		
+		#facebook
+			background-image: url('../../../user/themes/erupt/assets/img/facebook-dark.svg')
+
+		#twitter
+			background-image: url('../../../user/themes/erupt/assets/img/twitter-dark.svg')

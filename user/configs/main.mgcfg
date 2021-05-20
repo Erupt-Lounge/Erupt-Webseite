@@ -1,0 +1,3 @@
+basePath: /
+allowedHosts -a: www.erupt.ch
+https: true

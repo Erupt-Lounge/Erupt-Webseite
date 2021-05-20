@@ -1,0 +1,48 @@
+|block 'main'|
+
+	|if ctn.dark|
+	<script>document.body.classList.add('dark');</script>
+	|end|
+
+	|comp 'header'|
+
+	<div class="container logos">
+
+		<div class="corner top-left">
+			<span></span>
+			<span></span>
+		</div>
+
+		<div class="corner bottom-right">
+			<span></span>
+			<span></span>
+		</div>
+
+		<div class="wrapper">
+
+			<div class="text">
+				<h1>|esc ctn.textTitle|</h1>
+				<div class="editor-text">
+					|ctn.text|
+				</div>
+			</div>
+
+			<div class="grid">
+
+				|for sponsor in ctn.logosGrid|
+					
+					<a href="|sponsor.link|" target="_BLANK" class="logo">
+						<img src="|sponsor.Image.src()|">
+					</a>
+
+				|end|
+
+			</div>
+
+		</div>
+
+	</div>
+
+|end|
+
+|inc 'templ/main'|

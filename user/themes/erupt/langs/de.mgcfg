@@ -1,0 +1,94 @@
+onlyImageAllowed: Nur Jpg, Png und Gif sind erlaubt
+select: Auswählen
+cancel: Abbrechen
+
+header: Header
+displayTitle: Titel verstecken
+
+fixedButton: Fixierter Button
+fixedButtonLink: Fixierter Button Link
+
+leftImage: Bild links
+leftTitle: Titel links
+leftPage: Linke Zielseite
+
+rightImage: Bild rechts
+rightTitle: Titel rechts
+rightPage: Rechte Zielseite
+
+bgImage: Bild
+
+modComponents: Bereiche
+sections: Bereiche
+addSection: Bereich hinzufügen
+removeSection: Bereich entfernen
+typeField: Typ
+sectionTitle: Titel
+sectionText: Text
+modImage: Bild
+linkText: Button Text
+link: Link
+
+landing: Landing
+modPage: Baukasten
+switchDark: Dunkle Seite
+eventPage: Event Seite
+eventType: Event Kategorie
+previewText: Vorschautext
+
+eventsPage: Events Seite
+textTitle: Titel
+mainText: Text
+
+logosPage: Logo Seite
+logosText: Logos
+addLogo: Logo hinzufügen
+removeLogo: Logo entfernen
+logo: Logo
+
+contactPage: Kontakt Seite
+contactMail: Empfänger Email
+
+main: Haupteinstellungen
+topNavi: Hauptnavigation
+navAddBtn: Eintrag hinzufügen
+navSelectTitle: Eintrag auswählen
+
+registerBtn: Aktionsknopf
+registerLink: Aktionslink
+
+footerLogos: Footer Logos
+addFooterLogo: Footer Logo hinzufügen
+removeFooterLogo: Footer Logo entfernen
+
+box1Title: Box 1 Titel
+links: Links
+addLink: Link hinzufügen
+removeLink: Link entfernen
+
+footerNavi: Footer Navigation
+
+instagramName: Instagram Benutzername
+facebookName: Facebook Benutzername
+twitterName: Twitter Benutzername
+
+eventNames: Eventseiten
+eventName: Eventseite
+
+mainPages: Hauptseiten
+mainPage: Hauptseite
+
+// Contact
+contactFirstname: Vorname Platzhalter
+contactLastname: Nachname Platzhalter
+contactEmail: Email Platzhalter
+contactMessage: Nachricht Platzhalter
+recaptchaKey: Captcha v2 Key
+recaptchaSecretKey: Captcha v2 Secret Key
+contactSend: Absenden Platzhalter
+contactErrorText: Fehlermeldung
+contactMailTo: Empfänger Email
+
+// Footer
+sponsorLogo: Logo
+copyrightText: Copyright Text

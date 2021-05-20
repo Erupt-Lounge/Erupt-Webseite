@@ -1,0 +1,30 @@
+<div class="container flow-text">
+		
+	<div class="corner top-left">
+		<span></span>
+		<span></span>
+	</div>
+
+	<div class="corner bottom-right">
+		<span></span>
+		<span></span>
+	</div>
+
+	<div class="content">
+		
+		<div class="title">
+			<h1>|section.pTitle|</h1>
+		</div>
+
+		<div class="text">
+			|section.text|
+		</div>
+
+		|if section.image|
+			|section.image.setLang( page.lang )|
+			|section.image.tag()|
+		|end|
+
+	</div>
+
+</div>

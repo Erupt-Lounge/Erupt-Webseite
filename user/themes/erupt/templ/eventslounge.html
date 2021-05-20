@@ -1,0 +1,35 @@
+<div class="container gallery">
+
+	<h1>|esc section.pTitle|</h1>
+
+	<div class="wrapper">
+
+		|events = newQuery().byLayouts(['event']).orderDesc('publishOn').full()|
+		|count = 0|
+		|for event in events|
+		|if event.type == 'lounge' && count < 3|
+		|count += 1|
+		<div class="box">
+			<img src="|event.header.bgImage.src()|">
+			<a href="|event.url|">
+				<div class="content">
+					<h2>|event.title|</h2>
+					<span></span>
+					<p>|replace "\n", '<br>', esc( event.previewText )|</p>
+				</div>
+			</a>
+		</div>
+		|end|
+		|end|
+
+	</div>
+
+	<a class="button" href="|section.link|">
+		<div class="border">
+			<div class="background">
+				<p class="gradient-text">|esc section.linkText|</p>
+			</div>
+		</div>
+	</a>
+
+</div>
