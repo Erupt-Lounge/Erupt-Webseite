@@ -153,13 +153,12 @@
 		<h4>|esc main.copyrightText| |date('Y')|</h4>
 
 	</div>
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134292005-1"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	|for asset in assets( 'js' )|
 		<script type="text/javascript" src="|asset|"></script>
 	|end|
-
 	|out 'scripts'|
+	<script type="text/javascript" src="|theme.url('assets/js/analytics.js')|"></script>
 
 </body>
 </html>

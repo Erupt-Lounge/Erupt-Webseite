@@ -1,16 +1,16 @@
 <header>
 		
 	<div class="wrapper">
-		
-		<div class="cat-box" id="cat-one" style="background-image: url('|ctn.leftImg.src(1920, 1080)|')">
-			<a href="|ctn.leftPage.url|"><h1>|esc ctn.leftText|</h1></a>
-		</div>
 
-		<div class="cat-box" id="cat-two" style="background-image: url('|ctn.rightImg.src(1920, 1080)|')">
-			<a href="|ctn.rightPage.url|"><h1>|esc ctn.rightText|</h1></a>
-		</div>
+		<a href="|ctn.leftPage.url|" class="cat-box" id="cat-one" style="display: block; background-image: url('|ctn.leftImg.src(1920, 1080)|')">
+			<h1>|esc ctn.leftText|</h1>
+		</a>
 
-		<div id="signet">
+		<a href="|ctn.rightPage.url|" class="cat-box" id="cat-two" style="display: block; background-image: url('|ctn.rightImg.src(1920, 1080)|')">
+			<h1>|esc ctn.rightText|</h1>
+		</a>
+
+		<div id="signet" style="pointer-events: none;">
 			<img src="|theme.url('assets/img/erupt-signet.svg')|" alt="Erupt Signet">
 		</div>
 
