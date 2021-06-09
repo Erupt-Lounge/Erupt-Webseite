@@ -450,8 +450,74 @@ Gallery
 */
 
 .gallery
+	>.text
+		width: 50%
+		margin: auto
+		text-align: center
+
+		<850px
+			width: 75%
+
+		<500px
+			width: 100%
+
+	.wrapper
+		@grid
+		grid-template-columns: repeat(4, 1fr)
+		grid-gap: 50px
+		padding: 100px 0
+
+		<1400px
+			grid-gap: 25px
+
+		<1000px
+			grid-template-columns: repeat(3, 1fr)
+
+		<750px
+			grid-template-columns: repeat(2, 1fr)
+
+		<500px
+			grid-template-columns: 1fr
+
+		.image
+			position: relative;
+			width: 100%
+			height: 300px
+			overflow: hidden
+			background-size: cover
+
+			img
+				position: absolute
+				max-width: 250%
+				width: unset
+				left: 50%
+				top: 40%
+				-webkit-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				-moz-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				-ms-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				-o-transform: translateX(-50%) translateY(-50%) scale(0.55)
+
+			.text
+				margin: 20px 20px
+				overflow: hidden
+				text-overflow: ellipsis
+				display: -webkit-box
+				-webkit-line-clamp: 3
+				-webkit-box-orient: vertical
+
+				h2
+					color: --white
+					padding-bottom: 10px
+
+				p
+					color: --white
+
+/*
+Events
+*/
+
+.events
 	@relative
-	background-color: --lightgray
 	padding: 175px 75px
 	text-align: center
 
@@ -460,33 +526,6 @@ Gallery
 
 	<500px
 		padding: 100px 25px
-
-	::before
-		@block
-		@absolute
-		@ctn
-		z-index: -1
-		width: 100%
-		height: 40vh
-		background-image: url("../../../user/themes/erupt/assets/img/spikes.png")
-		background-size: cover
-		background-position: bottom center
-		bottom: 100%
-		left: 0
-
-	::after
-		@block
-		@absolute
-		@ctn
-		z-index: -1
-		width: 100%
-		height: 40vh
-		background-image: url("../../../user/themes/erupt/assets/img/spikes.png")
-		background-size: cover
-		background-position: bottom center
-		top: 100%
-		left: 0
-		transform: rotate(180deg)
 
 	.wrapper
 		@grid
@@ -503,16 +542,37 @@ Gallery
 			height: 300px
 			overflow: hidden
 			background-size: cover
+			z-index: 1
+
+			a
+				display: block;
+				height: 100%;
+
+				:hover .content
+					transform: none
+
+			img
+				position: absolute
+				max-width: 250%
+				width: unset
+				left: 50%
+				top: 40%
+				-webkit-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				-moz-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				-ms-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				-o-transform: translateX(-50%) translateY(-50%) scale(0.55)
+				z-index: -1
 
 			<1000px
-				height: 200px
+				height: 240px
 
 			<850px
-				width: 60%
-				height: 250px
+				width: 80%
+				height: 360px
 				margin: auto
 
 			<750px
+				height: 300px
 				width: 100%
 
 			.content
@@ -527,12 +587,9 @@ Gallery
 				transform: translateY( calc( 100% - 70px ) )
 				transition: ease .5s
 
-				<1000px
-					padding: 15px
+				<850px
 					transform: translateY( calc( 100% - 50px ) )
-
-				:hover
-					transform: none
+					padding: 15px
 
 				h2
 					color: --white
@@ -548,6 +605,12 @@ Gallery
 				p
 					color: --white
 
+	.wrapper .box.gaming-event .content
+		background-color: --red
+
+	.wrapper .box.lounge-event .content
+		background-color: --blue
+
 	.button 
 		.background
 			background-color: --lightgray
@@ -555,6 +618,9 @@ Gallery
 		:hover
 			.background
 				background-color: rgba(0,0,0,0)
+
+	.editor-text
+		margin-bottom: 50px
 
 /*
 Flow Text
@@ -654,65 +720,6 @@ Video
 				left: 0
 				width: 100%
 				height: 100%
-
-/*
-Events
-*/
-
-.events
-	>.text
-		width: 50%
-		margin: auto
-		text-align: center
-
-		<850px
-			width: 75%
-
-		<500px
-			width: 100%
-
-	.wrapper
-		@grid
-		grid-template-columns: repeat(4, 1fr)
-		grid-gap: 50px
-		padding: 100px 0
-
-		<1400px
-			grid-gap: 25px
-
-		<1000px
-			grid-template-columns: repeat(3, 1fr)
-
-		<750px
-			grid-template-columns: repeat(2, 1fr)
-
-		<500px
-			grid-template-columns: 1fr
-
-		.event
-			img
-				width: 100%
-
-			.text
-				margin: 20px 20px
-				overflow: hidden
-				text-overflow: ellipsis
-				display: -webkit-box
-				-webkit-line-clamp: 3
-				-webkit-box-orient: vertical
-
-				h2
-					color: --white
-					padding-bottom: 10px
-
-				p
-					color: --white
-
-		.gaming-event
-			background-color: --red
-
-		.lounge-event
-			background-color: --blue
 
 /*
 Sponsors
@@ -922,6 +929,40 @@ Fixed Button
 		box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3)
 
 /*
+Light
+*/
+
+.events.spikes
+	background-color: --lightgray
+
+	::before
+		@block
+		@absolute
+		@ctn
+		z-index: -1
+		width: 100%
+		height: 40vh
+		background-image: url("../../../user/themes/erupt/assets/img/spikes.png")
+		background-size: cover
+		background-position: bottom center
+		bottom: 100%
+		left: 0
+
+	::after
+		@block
+		@absolute
+		@ctn
+		z-index: -1
+		width: 100%
+		height: 40vh
+		background-image: url("../../../user/themes/erupt/assets/img/spikes.png")
+		background-size: cover
+		background-position: bottom center
+		top: 100%
+		left: 0
+		transform: rotate(180deg)
+
+/*
 Dark
 */
 
@@ -956,7 +997,8 @@ Dark
 				-webkit-background-clip: text
 				-webkit-text-fill-color: transparent
 
-	.gallery
+
+	.events.spikes
 		background-color: --light-dark
 
 		::before
@@ -965,9 +1007,14 @@ Dark
 		::after
 			background-image: url('../../../user/themes/erupt/assets/img/spikes-dark.png')
 
-	.events
-		.event
-			background-color: --light-dark
+	.gallery
+		background-color: --light-dark
+
+		::before
+			background-image: url('../../../user/themes/erupt/assets/img/spikes-dark.png')
+
+		::after
+			background-image: url('../../../user/themes/erupt/assets/img/spikes-dark.png')
 
 	.footer
 		background-color: --white

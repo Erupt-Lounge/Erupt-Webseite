@@ -6,7 +6,7 @@
 
 	|comp 'header'|
 
-	<div class="container events">
+	<div class="container gallery">
 
 		<div class="text">
 			<h1>|esc ctn.textTitle|</h1>
@@ -16,19 +16,19 @@
 		</div>
 
 		<div id="event-wrapper" class="wrapper">
+
 			|events = newQuery().byLayouts(['event']).orderDesc('publishOn').full()|
 			|for event in events|
-
-			<div class="box |event.type|-event">
+			<a href="|event.url|" class="event |event.type|-event">
+				|img = event.header.bgImage|
+				|if img|
 				<img src="|event.header.bgImage.src()|">
-				<a href="|event.url|">
-					<div class="content">
-						<h2>|event.title|</h2>
-						<span></span>
-						<p>|replace "\n", '<br>', esc( event.previewText )|</p>
-					</div>
-				</a>
-			</div>
+				|end|
+				<div class="text">
+					<h2>|event.title|</h2>
+					<p>|replace "\n", '<br>', esc( event.previewText )|</p>
+				</div>
+			</a>
 			|end|
 
 		</div>
