@@ -1,13 +1,14 @@
 class MediaItem {
 
-	constructor( itm ) {
+	constructor( itm, baseLang ) {
 
 		Object.assign( this, itm );
+		this.baseLang = baseLang;
 
 	}
 
 	get value() {
-		return `mediaId${ this.id }`;
+		return `mediaId${ this.id }|${ this.baseLang }`;
 	}
 
 	get src() {
@@ -30,7 +31,7 @@ class MediaItem {
 	renderSqr() {
 
 		if ( this.cat === 'img' )
-			return `<div class="media-img-sqr" style="background-image: url(${ this.src })"></div>`;
+			return `<div class="media-img-sqr" style="background-image: url('${ this.src }')"></div>`;
 
 		return `no viewer`;
 
@@ -52,8 +53,8 @@ class MediaItem {
 
 class Media {
 
-	static convert( items ) {
-		return items.map( itm => new MediaItem( itm ) );
+	static convert( items, baseLang ) {
+		return items.map( itm => new MediaItem( itm, baseLang ) );
 	}
 
 }

@@ -308,7 +308,6 @@ settings
 			footerNavi
 				type: Navigation
 				name: 'footerNavi
-				layouts -a: modpage
 				addBtn: 'navAddBtn
 				selectTitle: 'navSelectTitle
 				selectBtn: 'select
