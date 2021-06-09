@@ -17,6 +17,8 @@
 	-webkit-font-smoothing: antialiased !important;
 
 body
+	background-color: --white
+
 	<1400px
 		--place: holder
 
@@ -300,13 +302,7 @@ Main
 header
 	width: 100%
 	height: 100vh
-	padding: 0 75px
-
-	<850px
-		padding: 0 50px
-
-	<500px
-		padding: 0 25px
+	padding: 0
 
 	.wrapper
 		@flex
@@ -576,6 +572,7 @@ Flow Text
 		<850px
 			padding: 75px 0
 			grid-template-columns: 1fr
+			display: block
 
 	.title
 		padding: 0 75px
