@@ -1,7 +1,7 @@
 <?php
 /*
 @package: Zipp
-@version: 1.0 <2019-05-28>
+@version: 1.0 <2021-01-27>
 */
 
 namespace Pages\Data;
@@ -94,10 +94,6 @@ class PagesTable extends Table {
 	// SPECIAL
 	public function executeQuery( array $ids = null, array $layouts = null, array $orders = null ) {
 
-		// $pages = $this->pages->executeQuery( $layouts, $order, $amount );
-
-		// return $this->handler->executeQuery( $layouts, $order, $amount );
-
 		$list = [];
 
 		if ( !isNil( $ids ) || !isNil( $layouts ) )
@@ -118,9 +114,6 @@ class PagesTable extends Table {
 			if ( isset( $this->fields[$key] ) )
 				$list[] = sprintf( 'ORDER BY `%s` %s', $key, $asc ? 'ASC' : 'DESC' );
 		}
-
-		/*if ( $amount > 0 )
-			$list[] = sprintf( 'LIMIT %d', $amount );*/
 
 		$sql = sprintf( 'SELECT %s FROM %s %s', $this->keys(), $this->name, implode( ' ', $list ) );
 		$pre = $this->prepare( $sql );

@@ -45,6 +45,7 @@ class RouterInteractor extends Interactor {
 		$t = $this->mods->Themes;
 		$p = $this->mod->getByUrl( $uri, $lang );
 
+		// TODO: check if it is needed
 		/*if ( $this->mods->has( 'Logs' ) && !defined( 'PAGES_SHOW_PREVIEW' ) ) {
 			$this->mods->Logs->log( 'req', $req->uri );
 		}*/

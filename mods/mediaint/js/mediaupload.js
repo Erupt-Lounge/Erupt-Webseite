@@ -7,10 +7,6 @@
 
 class MediaUpload {
 
-	/* PROPERTIES
-	/- el
-	*/
-
 	// METHODS
 	async build( r ) {
 
@@ -62,14 +58,12 @@ class MediaUpload {
 				return;
 
 			e.preventDefault();
-			console.log( this.fileEl );
 			this.fileEl.click();
 		} );
 
 		this.el.o( 'drop', e => {
 			e.preventDefault();
 			this.el.cl.remove( 'over' );
-			console.log( 'drop', e );
 
 			this.transfer( e.dataTransfer.files );
 		} );
@@ -104,17 +98,10 @@ class MediaUpload {
 		this.startedFn();
 
 		// file type cannont be trusted
-		/*const accceptedFileTypes = {
-			jpg: 'image/jpeg',
-			png: 'image/png',
-			txt: 'text/plain'
-		};*/
 
 		const list = [];
 
 		for ( let file of files ) {
-			// const type = file.type
-			// const name = file.name
 
 			const extension = file.name.split('.').pop();
 			if ( file.size <= 0 || file.type.length === 0 )
@@ -124,7 +111,6 @@ class MediaUpload {
 			handler.show( file.name );
 
 			if ( this.allowed.indexOf( extension ) === -1 ) {
-				console.log( this.allowed, extension );
 				handler.error( this.notAllowedText );
 				continue;
 			}
@@ -132,11 +118,6 @@ class MediaUpload {
 
 			list.push( [ file, handler ] );
 
-			// this.upload( file );
-
-			/*if ( file.kind !== 'file' )
-				continue;
-			console.log( 'file', file );*/
 		}
 
 		if ( list.length === 0 )
@@ -145,8 +126,6 @@ class MediaUpload {
 		const nonces = await this.getNonces( list.length );
 
 		const listeners = [];
-
-		console.log( list );
 
 		for ( let i in list ) {
 			// const type = file.type
@@ -188,7 +167,6 @@ class MediaUpload {
 		formData.append( 'file', file );
 
 		const res = await Ajax.file( 'mediaint', 'upload', formData, perc => {
-			console.log( 'handler', handler );
 			handler.update( perc );
 		} );
 
@@ -196,8 +174,6 @@ class MediaUpload {
 			handler.error( res.data );
 			return;
 		}
-
-		// res.data == 'media'
 
 		const itm = new MediaItem( res.data );
 
@@ -229,9 +205,7 @@ class MediaUpload {
 				this.el.remove();
 			},
 			update( progress ) {
-				console.log( 'progress', progress );
 				this.el.setAttribute( 'style', `--progress:${ progress }%` );
-				// this.el.dataset.progress = progress + '%';
 			}
 		};
 	}

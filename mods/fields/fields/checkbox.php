@@ -15,10 +15,6 @@ class CheckBox extends Field {
 
 	public $default = false;
 
-	/*public function render( object $data ) {
-		return sprintf( '%s<input type="checkbox" name="%s" %s>', $this->renderInfo(), $this->slug, $this->getD( $data, false ) ? 'checked' : '' );
-	}*/
-
 	public function validate( object $input ) { return true; }
 
 	public function out( object $input ) {

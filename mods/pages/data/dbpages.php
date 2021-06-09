@@ -200,53 +200,6 @@ class DbPages extends MagicGet {
 		}
 
 		return $pages;
-
-		// i need all page ids
-
-		/*
-
-		$ps = $this->pages->getByLayouts( $layouts );
-
-		if ( !has( $ps ) )
-			return [];
-
-		$nPs = [];
-
-		foreach ( $ps as $p )
-			$nPs[$p->pageId] = $p;
-
-		$ctns = $this->ctn->getByPageIds( array_keys( $nPs ) );
-		$pages = [];
-
-		foreach ( $nPs as $p ) {
-
-			// $nPs is ascending
-			$id = $p->pageId;
-
-			$cts = [];
-
-			foreach ( $ctns as $c ) {
-
-				if ( $c->pageId !== $id )
-					break;
-
-				$cts[$c->lang] = array_shift( $ctns );
-
-			}
-
-			if ( !has( $cts ) )
-				throw new Error( sprintf( 'no content for page %d found', $id ) );
-
-			$pages[] = new Page( $p, $cts, $lang );
-
-		}
-
-		return $pages;
-
-		*/
-
-		// return $ctns;
-
 	}
 
 	// GET ONE
@@ -328,8 +281,6 @@ class DbPages extends MagicGet {
 		$this->ctn->updateState( $cId, $state );
 	}
 
-	// this look crazy hahaha
-
 	// DELETE
 	public function delByPage( int $pId ) {
 
@@ -357,8 +308,6 @@ class DbPages extends MagicGet {
 			$p->ctns = [];
 			$pages[(int) $p->pageId] = $p;
 		}
-
-		// return $this->handler->executeQuery( $layouts, $order, $amount );
 
 		$doesOrder = false;
 		$ctns = $this->ctn->executeQuery( array_keys( $pages ), $order, $amount, $doesOrder );

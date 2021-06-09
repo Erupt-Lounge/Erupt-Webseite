@@ -21,14 +21,6 @@ class Viewer {
 
 		return $this->site->getMl( $k, $this->lang ) ?? $this->site->get( $k );
 
-		// multilingual stuff is used more
-		/*$d = $this->site->getMl( $k, $this->lang );
-
-		if ( !isNil( $d ) )
-			return $d;
-
-		return $this->site->get( $k );*/
-
 	}
 
 	public function __debugInfo() {

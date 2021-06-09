@@ -26,23 +26,6 @@ class DelMedia extends Page {
 			'mediaId' => $mediaId
 		];
 
-		/*$sInt = $this->mods->SiteInt;
-		$lang = $sInt->getCookieLang();
-
-		$itms = [];
-
-		foreach ( $this->mods->Media->getAll( $lang ) as $itm )
-			$itms[] = $itm->exportShort();
-
-		return [
-			'title' => $l->mediaTitle,
-			'items' => $itms,
-			'editUrl' => $this->admin->bUrl( 'media/edit' ),
-			'langsSelect' => $sInt->langs,
-			'baselang' => $lang,
-			'multilingual' => $sInt->multilingual
-		];*/
-
 	}
 
 	public function onAjax( AjaxRequest $req ) {
@@ -71,19 +54,6 @@ class DelMedia extends Page {
 		$media->delete( $mediaId );
 
 		$req->ok( $this->admin->bUrl( 'media/' ) );
-
-		/*try {
-
-
-
-			$media->delete( $mediaId );
-			$req->ok( $this->admin->bUrl( 'media/' ) );
-
-		} catch ( Error $e ) {
-
-			$req->error( $l->delError );
-
-		}*/
 
 	}
 

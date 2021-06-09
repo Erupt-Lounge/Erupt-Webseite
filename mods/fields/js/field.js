@@ -43,11 +43,6 @@ class Field {
 	}
 
 	listen() { // should be executed when the html was inserted
-		/*this.el = c(i(this.id));
-
-		this.el.o( 'change', e => {
-			this.changedFns.forEach( c => c() );
-		} );*/
 	}
 
 	// INIT
@@ -103,47 +98,5 @@ class Field {
 	triggerChanges() {
 		this.changedFns.forEach( c => c( this ) );
 	}
-
-	// cloning this field
-	/*clone( data = null ) {
-
-		const nField = new this.constructor( this.type, this.slug, true );
-
-		if ( isNil( data ) )
-			data = [this.sett];
-
-		nField.processBasicData( [ this.name, this.desc, this.dontRenderInfo ].concat( data ) );
-
-		return nField;
-
-	}*/
-
-	
-
-	/*processTemplate( data ) {
-		throw new Error( 'This field doenst support templates' );
-	}*/
-
-
-
-
-	/*rendInfo() {
-
-		if ( this.dontRenderInfo )
-			return '';
-
-		const desc = isNil( this.desc ) ? null : `<p>${ this.desc }</p>`;
-		const name = `<label for="${ this.id }" title="${ this.slug }">${ this.name }</label>`;
-
-		if ( !isNil( desc ) )
-			return `<div class="info">${ name + desc }</div>`;
-
-		return name;
-
-	}
-
-	render() {
-		return ``;
-	}*/
 
 }

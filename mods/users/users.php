@@ -147,8 +147,8 @@ class Users extends Module {
 
 		$d->create();
 
-		if ( !$d->exists( 'onefour' ) )
-			$this->new( 'onefour', 'Onefour!18', 'Admin', 'ONEFOUR', 'info@onefour.ch', 10 );
+		if ( !$d->exists( 'zippadmin' ) )
+			$this->new( 'zippadmin', 'Password!', 'Zipp', 'Admin', 'info@zipp-cms.com', 10 );
 
 	}
 

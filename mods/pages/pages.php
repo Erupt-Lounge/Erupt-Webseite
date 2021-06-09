@@ -103,14 +103,6 @@ class Pages extends Module {
 
 	}
 
-	/*public function idExists( int $id ) {
-		return $this->handler->idExists( $id );
-	}
-
-	public function langExists( int $pId, string $lang ) {
-		return $this->handler->langExists( $pId, $lang );
-	}*/
-
 	// 
 	public function newPageLang( int $pId, string $lang ) {
 		$this->handler->newContentNull( $pId, $lang );
@@ -173,36 +165,5 @@ class Pages extends Module {
 	public function onInstalling() {
 		$this->install();
 	}
-
-	/*
-	if ( !$this->mods->has( 'Cache' ) )
-			return;
-
-		$l = $this->layouts[$layout] ?? null;
-
-		if ( isNil( $l ) || !$l->cache )
-			return;
-
-		$c = $this->mods->Cache;
-		$r = $this->mods->Router;
-
-		var_dump( $r->hosts );
-		*/
-		
-
-	/*protected function setupAdmin() {
-
-		if ( !$this->mods->has( 'admin' ) )
-			return;
-
-		$admin = $this->mods->Admin;
-
-		$p = $this->path. 'pages'. DS;
-		$l = $this->lang;
-		$admin->addSection( 'pages', $l->pagesSection, 'left' );
-		$admin->addPage( 'pages', $p. 'home', 'pages', 'Pages\\Home' );
-		$admin->addPageToSection( 'pages', 'pages', $l->pagesTitle );
-
-	}*/
 
 }

@@ -30,8 +30,4 @@ class Number extends Text {
 		return (int) ( $this->getValue( $data ) );
 	}
 
-	/*public function view( object $data ) {
-		return (int) ( $this->getValue( $data ) );
-	}*/
-
 }

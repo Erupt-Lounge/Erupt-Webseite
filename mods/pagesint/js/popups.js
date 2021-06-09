@@ -189,7 +189,6 @@ class AddPagePopup extends PopUp {
 	onOpen() {
 
 		this.onAction( 'select', e => {
-			console.log( 'selected' );
 			this.selectedFn( parseInt( this.cont.c('select').value ) );
 			this.close();
 		} );

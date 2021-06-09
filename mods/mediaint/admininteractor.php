@@ -19,14 +19,6 @@ class AdminInteractor extends Interactor {
 
 		$this->addSection( 'media', $l->mediaSection, -30 );
 
-		/*$this->addPage( 'PagesInt\EditPage' );
-		$this->addPageUrl( 'pages/edit/', 'editpage' );
-		$this->addPage( 'PagesInt\NewPage' );
-		$this->addPageUrl( 'pages/new/', 'newpage' );
-
-		$this->addPage( 'PagesInt\NewPageLang' );
-		$this->addPage( 'PagesInt\DelPage' );*/
-
 		$this->addPage( 'Pages\MediaUpload' );
 		$this->addPageUrl( 'media/upload/', 'mediaupload' );
 
@@ -42,15 +34,6 @@ class AdminInteractor extends Interactor {
 		$this->addMultiple([
 			[ 'Pages\Media', 'media', $l->mediaTitle ]
 		]);
-
-		// do the dynamic stuff
-
-		/*$cats = $this->mods->Themes->getPageCats();
-
-		foreach ( $cats as $k => $cat ) {
-			$this->addPage( $k, 'PagesInt\PagesDyn' );
-			$this->addPageToSection( 'pages', $k, $cat->name );
-		}*/
 
 	}
 

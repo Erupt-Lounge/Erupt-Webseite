@@ -13,12 +13,7 @@ class MultipleFiles extends SingleFile {
 
 	public $type = 'multiplefiles';
 
-	// maybe should add a max?
-	/*protected function parseCfg( object $cfg ) {
-		$this->select = $cfg->selectText ?? 'lang.select';
-		$this->notAllowed = $cfg->notAllowed ?? 'lang.notAllowed';
-		$this->allowed = $cfg->allowed ?? Media::getAllowedExtensions();
-	}*/
+	// TODO: maybe should add a max?
 
 	public function exportValue( object $data ) {
 
@@ -32,16 +27,9 @@ class MultipleFiles extends SingleFile {
 		$ids = [];
 		foreach ( $nData as $d ) {
 
-			if ( is_string( $d ) && cLen( $d, 7 ) ) {
-
-				$ids[] = (int) substr( $d, 7 );
-
-				// $itm = $media->getById( $id );
-
-				// if ( $itm )
-					// $viewData[] = $itm->ExportShort();
-
-			}
+			[$id, $lang] = self::parseValue($d);
+			if ( $id )
+				$ids[] = $id;
 
 		}
 
@@ -56,10 +44,6 @@ class MultipleFiles extends SingleFile {
 		return $viewData;
 
 	}
-
-	/*protected function exportData( object $data ) {
-		return [ $this->select, $this->notAllowed, $this->allowed ];
-	}*/
 
 	// we need a required setting
 	public function validate( object $in ) {
@@ -76,9 +60,12 @@ class MultipleFiles extends SingleFile {
 
 		foreach ( $d as $m ) {
 
-			$media = substr( $m, 0, 7 );
-			$id = (int) substr( $m, 7 );
+			[$id, $lang] = self::parseValue( $m );
 
+			if ( !$id || !$lang )
+				return false;
+
+			$media = substr( $m, 0, 7 );
 			if ( $media !== 'mediaId' || $id <= 0 )
 				return false;
 
@@ -97,9 +84,6 @@ class MultipleFiles extends SingleFile {
 
 	public function view( object $data ) {
 
-		// if received data is lang add lang to getById
-		$lang = $data->lang ?? null;
-
 		$d = $this->getValue( $data, [] );
 
 		if ( !is_array( $d ) || !has( $d ) )
@@ -107,11 +91,15 @@ class MultipleFiles extends SingleFile {
 
 		$media = Media::getInstance();
 
+		$gLang = null;
 		$ids = [];
-		foreach ( $d as $id )
-			$ids[] = (int) substr( $id, 7 );
+		foreach ( $d as $id ) {
+			[$id, $lang] = self::parseValue( $id );
+			$ids[] = $id;
+			$gLang = $lang;
+		}
 		
-		return $media->getByIds( $ids, $lang );
+		return $media->getByIds( $ids, $gLang );
 
 	}
 

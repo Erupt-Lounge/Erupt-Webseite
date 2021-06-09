@@ -18,8 +18,6 @@ class UserInteractor {
 
 		const l = r.lang;
 
-		console.log( 'user page', r );
-
 		const user = r.user;
 		this.fields = Fields.convert( r.fields );
 
@@ -72,13 +70,6 @@ class UserInteractor {
 			AjaxForms.submit( '.edit-user-form' );
 			this.saveBtn.changeSaved();
 		} );
-
-		/*c('.tp-act[data-action="save"]').o( 'click', e => {
-			e.preventDefault();
-
-			AjaxForms.submit( '.edit-user-form' );
-
-		} );*/
 
 		AjaxForms.listen( 'user', d => {
 			if ( d.ok )

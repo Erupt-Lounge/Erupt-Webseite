@@ -82,9 +82,6 @@ class DelMediaPop extends PopUp {
 			}
 		} );
 
-		/*setTimeout( () => {
-			
-		}, 500 );*/
 		this.onAction( 'delete', e => AjaxForms.submit( '.media-delete-form' ) );
 
 		this.selectActive( 'delete' );
@@ -115,9 +112,7 @@ class SelectMediaPop extends PopUp {
 
 		const l = r.lang;
 
-		console.log( r );
-
-		this.itms = Media.convert( r.items );
+		this.itms = Media.convert( r.items, r.baseLang );
 		if ( isNil( this, 'selected' ) )
 			this.selected = this.isSingle ? null : [];
 		// this.selected = this.isSingle ? null : [];
@@ -179,45 +174,15 @@ class SelectMediaPop extends PopUp {
 
 		} );
 
-		/*c('.media-upload').o( 'click', e => {
-			e.preventDefault();
-
-			const pop = new UploadPop( 'media/upload' );
-
-			pop.open();
-			pop.onUploaded( () => {
-				this.reload = true;
-				this.close();
-				this.open();
-				this.reload = false;
-			} );
-
-		} );*/
-
 		ca('.media-select-item').c( el => {
 			this.listenItem( el );
 		} );
-
-		/*AjaxForms.go( '.media-upload-form' );
-		AjaxForms.listen( 'mediaupload', d => {
-			if ( d.ok ) {
-				this.close();
-				AdminPages.reload();
-			}
-		} );*/
 
 	}
 
 	onSelected( fn ) {
 		this.selectedFn = fn;
 	}
-
-	/*selected( itm ) {
-		if ( isNil( this.selectedFn ) )
-			return;
-		this.selectedFn( itm );
-		this.selectedFn = null;
-	}*/
 
 	onClose() {
 		if ( this.uploading )

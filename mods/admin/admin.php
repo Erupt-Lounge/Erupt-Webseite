@@ -220,30 +220,6 @@ class Admin extends Module {
 
 	}
 
-	// gets the defined pages specific to the sections
-	/*public function getSections( string $pos ) {
-		$secs = [];
-
-		foreach ( $this->sections as $k => $s ) {
-			if ( $pos === 'left' && $s[0] < 0 )
-				$secs[] = [$k, abs( $s[0] ), $s[1]];
-			else if ( $pos === 'right' && $s[0] > 0 )
-				$secs[] = [$k, $s[0], $s[1]];
-		}
-
-		usort( $secs, function( $a, $b ) {
-			return $a[1] <=> $b[1];
-		} );
-
-		foreach ( $secs as $s )
-			yield (object) [
-					'key' => $s[0],
-					'url' => $this->bUrl( $s[0]. '/' ),
-					'name' => $s[2]
-				];
-
-	}*/
-
 	public function getSections() {
 
 		if ( !has( $this->sections ) )
@@ -273,29 +249,6 @@ class Admin extends Module {
 	public function bUrl( string $url = '' ) {
 		return $this->mods->Router->url( 'admin/'. $url );
 	}
-
-	/*public function getPagesBySection( string $section ) {
-
-		if ( !isset( $this->sections[$section] ) )
-			throw new Error( sprintf( 'could not find pages by section "%s"', $section ) );
-
-		foreach ( $this->sections[$section][2] as $key => $inf )
-			yield (object) [
-				'key' => $key,
-				'title' => $inf[0],
-				'url' => $this->bUrl( $inf[1] )
-			];
-
-	}*/
-
-	/*public function getPagesBySection( string $section ) {
-
-		if ( !isset( $this->sections[$section] ) )
-			return [];
-
-		return $this->sections[$section][2];
-
-	}*/
 
 	// check if a page exists
 	protected function checkPage( string $key, string $type = '' ) {
@@ -352,8 +305,6 @@ class Admin extends Module {
 
 		$this->routerRegister( 'admin/', 'RouterInteractor' );
 		$this->ajaxRegister( 'AjaxInteractor' );
-
-		// $this->adminRegister( 'MainInteractor' );
 
 	}
 

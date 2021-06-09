@@ -101,7 +101,6 @@ class Ajax {
 			const req = new XMLHttpRequest;
 
 			req.addEventListener( 'load', e => {
-				// console.log( 'req load', req );
 				args.progress( 100 );
 				resolve( req.response );
 			} );

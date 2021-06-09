@@ -62,7 +62,6 @@ class Page {
 
 		}
 
-		// unset( $lngs[$ctn->lang] );
 		$this->langs = $lngs;
 
 		$this->ctnId = (int) $ctn->ctnId;
@@ -107,29 +106,6 @@ class Page {
 			$page->url = cleanUrl( sprintf( '%s%s/%s', $url, $k, $page->url ) );
 
 	}
-
-	/*public function exportLong() {
-
-		return [
-			'id' => $this->id,
-			'layout' => $this->layout,
-			'createdBy' => $this->createdBy,
-			'createdOn' => $this->createdOn,
-			'langs' => $this->langs,
-			'ctns' => $this->ctns
-		];
-
-	}*/
-
-	/*public function ctnClone() {
-		return (object) [
-			'title' => $this->title,
-			'url' => $this->url,
-			'ctn' => $this->ctn,
-			'keywords' => $this->keywords,
-			'publishOn' => $this->publishOn
-		];
-	}*/
 
 	public function replaceCtn( object $ctn ) {
 		$this->ctn = $ctn;

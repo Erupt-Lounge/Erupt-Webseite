@@ -115,10 +115,6 @@ class Page extends MagicGet {
 		return $this->mods->Nonce->new( $this->nonceKey );
 	}
 
-	/*public function active( string $a, string $b ) {
-		return $a === $b ? ' class="active"' : '';
-	}*/
-
 	public function isAdmin() {
 		return $this->users->isAdmin();
 	}

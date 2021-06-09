@@ -13,7 +13,7 @@ class HiddenField extends Field {
 	}
 
 	get htmlField() {
-		console.log( 'need to implement sett hidden Field', this.sett );
+		console.log( 'TODO: need to implement setting for hidden Field', this.sett );
 		return `<input ${ this.htmlId } type="hidden" ${ this.htmlSlug } value="${ this.initHtmlStrValue }">`;
 	}
 

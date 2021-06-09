@@ -16,10 +16,6 @@ class ArrayViewer {
 		$this->ar = $ar;
 	}
 
-	/*public function esc() {
-		return e( $this->str );
-	}*/
-
 	public function __toString() {
 		return implode( ', ', $this->ar );
 	}

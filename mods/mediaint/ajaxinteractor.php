@@ -37,28 +37,6 @@ class AjaxInteractor extends Interactor {
 
 		}
 
-		
-
-		/*$loggedIn = $this->mods->Users->isLoggedIn();
-
-		$this->mod->initMainInteractor();
-
-		if ( !$loggedIn ) {
-
-			if ( $page !== 'login' )
-				return $req->error( $this->mod->lang->notLoggedIn );
-
-			return $this->loadPage( $page, $req );
-
-		}
-
-		$this->mod->initInteractors();
-
-		if ( !$this->mod->hasPage( $page ) )
-			return $req->error( sprintf( 'could not find page "%s" in module admin', $page ) );
-
-		$this->loadPage( $page, $req );*/
-
 	}
 
 	protected function getNonces( Request $req ) {

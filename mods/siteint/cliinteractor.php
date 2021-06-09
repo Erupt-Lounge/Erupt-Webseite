@@ -31,10 +31,6 @@ class CLIInteractor extends Interactor {
 				$this->set( $args );
 				break;
 
-			/*case 'new':
-				$this->new( $args );
-				break;*/
-
 			default:
 				return $this->info();
 				break;
@@ -42,12 +38,6 @@ class CLIInteractor extends Interactor {
 		}
 
 		return false;
-
-		
-
-		// var_dump( $args );
-
-		// return false;
 
 	}
 
@@ -106,23 +96,5 @@ class CLIInteractor extends Interactor {
 		echo 'set'. EOL;
 
 	}
-
-	/*protected function new( array $args ) {
-
-		if ( !has( $args, 2 ) ) {
-			echo 'specifiy <username> and <password>'. EOL;
-			return;
-		}
-
-		$res = $this->mod->new( $args[0], $args[1], 'surname', 'lastname', 'email@example.com', 10 );
-
-		if ( !$res )
-			echo 'could not create new user input is incorrect';
-		else
-			echo 'user was created';
-
-		echo EOL;
-
-	}*/
 
 }

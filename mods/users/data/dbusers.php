@@ -26,9 +26,9 @@ class DbUsers extends Table {
 	// role 0 - 10
 	// viewer = 1
 	// editor = 4
-	// owner = 6 ??
+	// owner = 6
 	// admin = 8
-	// 10 root
+	// root = 10
 	// state 0:deleted 1:inactive 2:active
 
 	protected $indexes = 'PRIMARY KEY(`userId`), UNIQUE(`username`)';
@@ -71,11 +71,5 @@ class DbUsers extends Table {
 		return $obj && $obj->count > 0;
 
 	}
-
-	/*public function new( string $username, string $password, string $surname, string $lastname, string $email, int $role, int $state ) {
-
-
-
-	}*/
 
 }

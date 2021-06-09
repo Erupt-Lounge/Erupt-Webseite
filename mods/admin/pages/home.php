@@ -19,18 +19,6 @@ class Home extends Page {
 
 	protected $template = 'home';
 
-	/*public function onRequest( Request $req ) {
-
-		$this->loadHeader();
-
-
-		$this->loadTempl( 'home' );
-		// echo 'welcome to the home screen :)'.EOL;
-
-		$this->loadFooter();
-
-	}*/
-
 	public function onData( DataRequest $req ) {
 
 		if ( $req->uri !== '/' && $req->uri !== 'home/' )
@@ -42,28 +30,5 @@ class Home extends Page {
 		];
 
 	}
-
-	/*public function onAjax( AjaxRequest $req ) {
-
-		$this->nonceKey = 'login';
-
-		if ( !$this->checkNonce( $req ) )
-			return;
-
-		$d = $req->data;
-
-		$username = $d['username'] ?? '';
-		$password = $d['password'] ?? '';
-
-		$res = $this->mods->Users->login( $username, $password );
-
-		if ( $res )
-			$req->ok( true );
-		else
-			$req->formError( $this->lang->credsError, $this->newNonce() );
-
-	}*/
-
-	// onCLI
 
 }

@@ -17,8 +17,6 @@ class Pages extends Page {
 
 	protected $template = 'pages';
 
-	// protected $ctnCountListeners = [];
-
 	public function onData( DataRequest $req ) {
 
 		$s = $this->mods->SiteInt;
@@ -38,10 +36,5 @@ class Pages extends Page {
 		];
 
 	}
-
-	/*public function listenOnCtnCount( string $mod ) {
-		$ctnCountListeners[] = $mod;
-		// trigger ctnCount( str 'ctnId{$id}' ) -> uint
-	}*/
 
 }

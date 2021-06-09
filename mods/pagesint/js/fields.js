@@ -20,39 +20,12 @@ class NavigationField extends Field {
 	}
 
 	get htmlField() {
-		console.log( 'need to implement navigationField', this.pages );
 		return `<div ${ this.htmlId } class="navigation-cont"></div>`;
 	}
 
 	processData( data ) {
-		console.log( this.initValue );
 		this.pages = data.shift();
 		this.lang = data.shift();
-		/*this.lang = {
-			addBtn: 'Add Page',
-			selectTitle: 'Select Page',
-			selectBtn: 'Select',
-			selectCancel: 'Cancel',
-			deleteTitle: 'Confirm Deletion',
-			deleteMsg: 'Do you want to delete this Page?',
-			deleteBtn: 'Delete item',
-			deleteCancel: 'Cancel',
-			deleteDontShowAgain: 'Don\'t show again'
-		};*/
-		// this.lang
-		/*
-		- addBtn
-
-		- selectTitle
-		- selectBtn
-		- selectCancel
-
-		- deleteTitle
-		- deleteMsg
-		- deleteBtn
-		- deleteCancel
-		- deleteDontShowAgain
-		*/
 	}
 
 	buildItem( pageId, level ) {
@@ -142,25 +115,7 @@ class NavigationField extends Field {
 
 				const levels = this.splitLevel( el );
 
-				console.log( 'add to level', levels, e );
-
 				const pop = new AddPagePopup( 'add-page-popup' );
-
-
-				// this.lang
-				/*
-				- addBtn
-
-				- selectTitle
-				- selectBtn
-				- selectCancel
-
-				- deleteTitle
-				- deleteMsg
-				- deleteBtn
-				- deleteCancel
-				- deleteDontShowAgain
-				*/
 
 				const pages = [];
 				for ( let id in this.pages )
@@ -172,8 +127,6 @@ class NavigationField extends Field {
 				} );
 
 				const nId = await pop.selectedPage();
-
-				//const nId = await this.addDrop( e.clientX, e.clientY );
 
 				if ( !nId )
 					return;
@@ -204,12 +157,7 @@ class NavigationField extends Field {
 	}
 
 	listen() {
-
 		this.reRender();
-
-		/*c(i(this.id)).o( 'change', e => {
-			this.changedFns.forEach( c => c() );
-		} );*/
 	}
 
 }

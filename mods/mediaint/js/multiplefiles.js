@@ -7,10 +7,6 @@ class MultipleFilesField extends SingleFileField {
 	// GETTERS
 	get htmlField() {
 
-		console.log( 'need to implement multipleFiles', this );
-
-		console.log( 'init', this.initValue );
-
 		let itms = [];
 		if ( !isNil( this.initValue ) )
 			itms = Media.convert( this.initValue );
@@ -53,7 +49,6 @@ class MultipleFilesField extends SingleFileField {
 		cont.c( '.select-media' ).o( 'click', e => {
 			e.preventDefault();
 
-			console.log( 'open media', this );
 			// should pass if single or double, and extensions
 			const pop = new SelectMediaPop( 'media/select' );
 			pop.allowed = this.allowed;
@@ -64,8 +59,6 @@ class MultipleFilesField extends SingleFileField {
 			pop.onSelected( itms => {
 
 				this.itms = itms;
-
-				console.log( 'selected itms', itms );
 
 				this.input.value = this.exportItems();
 				fileViews.h( itms.map( itm => itm.renderAsItem() ).join('') );

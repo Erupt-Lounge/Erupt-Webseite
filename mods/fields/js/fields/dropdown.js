@@ -12,16 +12,6 @@ class DropDown extends Field {
 		return this.el.value;
 	}
 
-	/*processTemplate( data ) {
-		this.processBasicData( data );
-		this.data = null;
-		this.isTemplate = true;
-	}*/
-
-	/*fill( data ) { // gets only run in template environment
-		return this.clone( [ this.options, data ] );
-	}*/
-
 	get html() {
 
 		if ( this.options.length <= 5 )
@@ -37,7 +27,7 @@ class DropDown extends Field {
 
 	renderSmall() {
 
-		console.log( 'dropdown sett not defined' );
+		console.log( 'TODO: dropdown settings' );
 
 		const h = this.options.map( ([key, name]) =>
 			`<option value="${ esc( key ) }"${ this.initValue === key ? ' selected' : '' }>${ esc( name ) }</option>`
@@ -49,7 +39,7 @@ class DropDown extends Field {
 
 	renderBig() {
 	
-		console.log( 'big Dropdown not implemented' );
+		console.log( 'TODO: big Dropdown not implemented' );
 
 		return this.renderSmall();
 

@@ -7,8 +7,6 @@ class SingleFileField extends Field {
 
 	get htmlField() {
 
-		console.log( 'need to implement singlefile', this );
-
 		let itm = false;
 		if ( !isNil( this.initValue ) )
 			itm = Media.convert( [this.initValue] )[0];
@@ -52,7 +50,6 @@ class SingleFileField extends Field {
 		cont.c( '.select-media' ).o( 'click', e => {
 			e.preventDefault();
 
-			console.log( 'open media', this );
 			// should pass if single or double, and extensions
 			const pop = new SelectMediaPop( 'media/select' );
 			pop.single = true;
@@ -68,8 +65,6 @@ class SingleFileField extends Field {
 					return;
 
 				this.itm = itm;
-
-				console.log( 'selected itm', itm );
 
 				this.input.value = itm.value;
 				fileView.h( itm.renderAsItem() );

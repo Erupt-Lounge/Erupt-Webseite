@@ -116,8 +116,6 @@ class SettingsInteractor {
 
 		r.onLeft( () => {
 			DocEvents.removeSaveListener( r.slug );
-			/*if ( this.saveBtn.hasChanged )
-				return false;*/
 		} );
 
 	}

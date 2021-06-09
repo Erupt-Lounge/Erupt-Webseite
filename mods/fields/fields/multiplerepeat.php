@@ -34,18 +34,6 @@ class MultipleRepeat extends Field {
 
 	}
 
-
-	/*public function export( object $data ) {
-
-		$da = $data->{$this->slug} ?? [];
-
-		$fs = [];
-		$k = $this->field->slug;
-
-		return [ $this->type, $this->slug, $this->field->name, $this->field->desc, [], $da, $this->addText, $this->removeText, $this->field->export( (object) [] ) ];
-
-	}*/
-
 	public function exportValue( object $data ) {
 
 		$da = $this->getValue( $data, [] );
@@ -139,10 +127,5 @@ class MultipleRepeat extends Field {
 		return $nD;
 		// return new Viewer\Boolean( $this->getD( $data ) );
 	}
-
-	// should implement view??
-	/*public function view( object $data ) {
-		return new Viewer\Boolean( $this->getD( $data ) );
-	}*/
 
 }

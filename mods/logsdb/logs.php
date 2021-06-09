@@ -17,11 +17,6 @@ class Logs extends Module {
 	// PROPERTIES
 	protected $handlers = [ 'database' => 'Data\DBLogs' ];
 
-	/*public function getMostRated( int $lim = 5 ) {
-		$this->import();
-		return $this->handler->mostRated( $lim );
-	}*/
-
 	public function getAll() {
 		$this->import();
 		return $this->handler->getAllLimit( 500 );
@@ -60,18 +55,10 @@ class Logs extends Module {
 		$this->handler->create();
 	}
 
-	// Get All
-
-	// Get All
-	// get most rated
-
 	// PROTECTED
 	protected function import() {
 		$list = $this->mods->Logs->getAll();
 		if ( has( $list ) ) {
-			/*if ( $this->mods->has( 'Router' ) )
-				$list[2] = $this->mods->Router->removeBasePath( $list[2] );*/
-			// $list[2] = // clean
 			$this->handler->insertAll( $list );
 			$this->mods->Logs->clearAll();
 		}

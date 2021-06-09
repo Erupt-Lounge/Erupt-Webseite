@@ -91,21 +91,4 @@ class Site extends Module {
 
 	}
 
-	/*public function parseLang( Request $req ) {
-
-		// available langs
-		$s = $this->mods->Site;
-		$langs = $s->get( 'languages' );
-
-		$lng = $req->get->lang ?? null;
-
-		if ( !isNil( $lng ) && in_array( $lng, $langs ) )
-			return $lng;
-
-		$lang = $this->getDefaultLang( $langs );
-
-		return $lang;
-
-	}*/
-
 }

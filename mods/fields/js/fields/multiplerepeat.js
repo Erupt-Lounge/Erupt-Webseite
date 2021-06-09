@@ -5,16 +5,6 @@
 
 'use strict';
 
-/*if ( !( 'mapI' in Array.prototype ) ) {
-	// i know it isnt best practice but why not,
-	// there will never be a method that is called mapI in native JS
-	Array.prototype.mapI = function( fn ) {
-		const nAr = [];
-		this.forEach( ( v, i ) => nAr.push( fn( v, i ) ) );
-		return nAr;
-	};
-}*/
-
 function mapI( ar, fn ) {
 	const nAr = [];
 	ar.forEach( ( v, i ) => nAr.push( fn( v, i ) ) );
@@ -80,7 +70,6 @@ class MultipleRepeat extends Field {
 	}
 
 	saveData() {
-		console.log( 'save', this.getData() );
 		this.input.value = JSON.stringify( this.getData() );
 		this.triggerChanges();
 	}

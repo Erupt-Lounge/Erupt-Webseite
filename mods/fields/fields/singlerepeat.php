@@ -36,18 +36,6 @@ class SingleRepeat extends Field {
 
 	}
 
-
-	/*public function export( object $data ) {
-
-		$da = $data->{$this->slug} ?? [];
-
-		$fs = [];
-		$k = $this->field->slug;
-
-		return [ $this->type, $this->slug, $this->field->name, $this->field->desc, [], $da, $this->addText, $this->removeText, $this->field->export( (object) [] ) ];
-
-	}*/
-
 	public function exportValue( object $data ) {
 
 		$da = $this->getValue( $data, [] );
@@ -118,7 +106,6 @@ class SingleRepeat extends Field {
 			] );
 
 		return $d;
-		// return new Viewer\Boolean( $this->getD( $data ) );
 	}
 
 }

@@ -12,7 +12,7 @@ class KeywordsField extends TextField {
 	}
 
 	get htmlField() {
-		console.log( 'need to implement sett and renderinge', this.sett );
+		console.log( 'TODO: need to implement settings and rendering for KeywordsField', this.sett );
 		return `<input ${ this.htmlId } type="text" ${ this.htmlSlug } value="${ esc( tern( this.initValue, [] ).join(', ') ) }"${ this.settHtml }>`;
 	}
 

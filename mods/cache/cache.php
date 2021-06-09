@@ -50,12 +50,6 @@ class Cache extends Module {
 
 	}
 
-	/*public function onInit() {
-
-		// check if cli is available
-
-	}*/
-
 	// starting to cache a site
 	public function start() {
 		ob_start();
@@ -76,19 +70,6 @@ class Cache extends Module {
 		file_put_contents( $this->cPath. $filename, $ctn );
 
 	}
-
-	/*public function remove( array $urls ) {
-
-		foreach ( $urls as $url ) {
-
-			$f = md5( $url ). '.html';
-			
-			if ( is_file( $this->cPath. $f ) )
-				unlink( $this->cPath. $f );
-
-		}
-
-	}*/
 
 	public function clear() {
 

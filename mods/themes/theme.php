@@ -12,9 +12,7 @@ use Pages\Page;
 use Pages\PageQuery;
 use \Error;
 
-use Fields\Viewer\Text;
 use Fields\Viewer\ArrayViewer;
-use Fields\Viewer\Viewer;
 
 use MagmaMinifier\Minifier;
 use MagmaCSS\Engine as CSSEngine;
@@ -127,14 +125,6 @@ class Theme extends MagicGet {
 
 		if ( DEBUG ) {
 
-			/* if ( in_array( $slug, ['css', 'js'] ) )
-			$ctn = [$file, $type];
-		else
-			$ctn = $this->url( 'assets/'. $slug. '/'. $file );
-			*/
-
-			
-
 			// slug is css
 			
 			$tmpUrl = $this->tmpUrl. 'mgcss/';
@@ -212,10 +202,6 @@ class Theme extends MagicGet {
 		$this->activeEngine->addFn( 'lurl', '$theme->langUrl' );*/
 	}
 
-	/*protected function getConvPageCtn( Page $page ) {
-
-	}*/
-
 	// returns a layout
 	public function resolvePage( Page $page ) {
 
@@ -247,8 +233,6 @@ class Theme extends MagicGet {
 		$this->logPageRequest( $req );
 
 		$layout = $this->resolvePage( $page );
-
-		// $ly->fillFields( $page )
 
 		// all settings
 		$site = $this->mods->Site->getView( $page->lang );
@@ -297,30 +281,6 @@ class Theme extends MagicGet {
 
 	}
 
-	/*public function updatePage( string $url, string $lang, string $layout ) {
-
-		// if something should be made here???
-		if ( !$this->mods->has( 'Cache' ) )
-			return;
-
-		$l = $this->layouts[$layout] ?? null;
-
-		if ( isNil( $l ) || !$l->cache )
-			return;
-
-		$c = $this->mods->Cache;
-		$r = $this->mods->Router;
-
-		$urls = [];
-		$u = $lang. '/'. ( $url === '/' ? '' : $url );
-
-		foreach ( $r->hosts as $host )
-			$urls[] = $r->buildUrlWithHost( $host, $u );
-
-		$c->remove( $urls );
-
-	}*/
-
 	public function contentChanged( string $key, $data = null ) {
 		
 		if ( !$this->mods->has( 'Cache' ) )
@@ -338,9 +298,10 @@ class Theme extends MagicGet {
 		// set status code
 		$req->router->setStatusCode(404);
 
-		die;
+		define( 'DONT_OUTPUT_TIME', true );
 
 		// we need to stop here
+		// TODO: maybe check for a default layout that shows an error 404 Page
 
 		//echo 'Error 404'. EOL;
 		//echo $lang. ' '. $req->uri. EOL;
@@ -445,6 +406,10 @@ class Theme extends MagicGet {
 			if ( isset( $cfg->fields ) )
 				$cfg->fields = $this->convertCfgFields( $cfg->fields );
 
+			// add support for lang in options
+			if ( isset( $cfg->options ) )
+				$this->convertCfgLangs( $cfg->options );
+
 			$type = $cfg->type ?? 'Text';
 			$field = $this->getField( $type );
 			if ( isNil( $field ) )
@@ -466,8 +431,6 @@ class Theme extends MagicGet {
 
 		// , string $desc = null, array $fields
 		$this->components[$slug] = new Component( $slug, $comp, $fields );
-
-		// $this->components[$slug] = new Component( $slug, $name, $desc, $slug, $fields );
 
 	}
 

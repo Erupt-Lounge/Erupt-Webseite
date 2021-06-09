@@ -7,8 +7,6 @@ AdminPages.listen( 'logs', async r => {
 
 	const l = r.lang;
 
-	console.log( r.logs[0] );
-
 	r.main = `
 <h1>${ r.title }</h1>
 
@@ -43,47 +41,6 @@ AdminPages.listen( 'logs', async r => {
 
 </div>`;
 
-/*
-
-customLog: "user:test"
-datetime: "2019-07-16 09:35:50"
-exTime: 6.616
-host: "onefour.ctrl"
-ip: "192.168.95.59"
-logId: 407
-mode: "debug"
-type: "http"
-uri: "/_dev/zipp/admin/home/logs/"
-userAgent: "Mozilla/5.0 (Windows NT 
-*/
-
-	/*r.main = `
-<h1>${ r.title }</h1>
-
-<div class="basic-cont">
-	
-	<table>
-
-		<tr>
-			<td>Type</td>
-			<td>Date</td>
-			<td>Ex Time</td>
-			<td>Mode</td>
-			<td>Ip</td>
-			<td>Host</td>
-			<td>URI</td>
-			<td>User Agent</td>
-			<td>Custom Log</td>
-		</tr>
-
-		<tr>
-		${ r.logs.map( l => `<td>${ l.join( '</td><td>' ) }</td>` ).join( '</tr><tr>' ) }
-		</tr>
-
-	</table>
-
-</div>`;*/
-
 } );
 
 class LogsWidget extends HomeWidget {
@@ -106,8 +63,6 @@ class LogsWidget extends HomeWidget {
 
 		const d = res.data;
 
-		console.log( d );
-
 		this.cont.h( `<h2>${ d.title }</h2>
 	<div class="logs-widget-cont">
 		<p><b>Total:</b> ${ d.total }</p>
@@ -128,8 +83,6 @@ class LogsWidget extends HomeWidget {
 			dataPerDay.push( tern( d.perDates, datetime.phpDate, 0 ) );
 			labelsPerDay.push( `${ datetime.date }. ${ datetime.niceShortMonth }` );
 		}
-
-		console.log( labelsPerDay, dataPerDay );
 
 		const logsPerDay = new Chart( 'logs-per-day', {
 			type: 'line',
@@ -159,24 +112,3 @@ class LogsWidget extends HomeWidget {
 
 }
 HomeWidgets.add( 'logs', LogsWidget );
-
-/*HomeWidgets.add( 'logs', async () => {
-
-	const res = Ajax.json( 'logsint', 'basic', {
-		days: 0
-	} );
-
-	return `
-<h2>Statistics</h2>
-<div class="widget-ctn-ph">Test</div>`;
-
-} );*/
-
-
-/*
-> Range
-
-Nutzer
-Nutzer pro Tag (statistik)
-Seiten mit Anzahlen
-*/

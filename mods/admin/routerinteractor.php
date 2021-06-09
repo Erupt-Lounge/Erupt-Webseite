@@ -22,6 +22,7 @@ class RouterInteractor extends Interactor {
 			return $this->loadPage( $req, 'login' );
 
 		// log that it is a user
+		// TODO: check if we should do that
 		/*if ( $this->mods->has( 'Logs' ) )
 			$this->mods->Logs->log( 'user:'. $users->username );*/
 

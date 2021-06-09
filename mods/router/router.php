@@ -165,22 +165,6 @@ class Router extends Module {
 
 	}
 
-	// removes base path -> one slash at the end
-	/*public function removeBasePath( string $uri ) {
-
-		$basePath = $this->basePath;
-		if ( $basePath === '/' )
-			return $uri;
-
-		$uBase = substr( $uri, 0, len( $basePath ) );
-		if ( $uBase !== $basePath )
-			throw new Error( sprintf( 'Please reconfigure the basePath in the configs! %s !== %s', $uBase, $basePath ) );
-
-		$uri = substr( $uri, len( $basePath ) );
-		return trim( $uri, '/' ). '/';
-
-	}*/
-
 	// INITIALIZE
 	public function onInit() {
 
@@ -230,6 +214,10 @@ class Router extends Module {
 		$https = isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on';
 		if ( $this->https !== $https )
 			return $this->redirect();
+
+		// if the site is accessed with https but it is configured as no https
+		// we wan't to set the site as https
+		$this->https = $https;
 
 	}
 

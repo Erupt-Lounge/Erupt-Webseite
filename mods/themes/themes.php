@@ -116,10 +116,6 @@ class Themes extends Module {
 
 	}
 
-	/*public function updatedPage( string $url, string $lang, string $layout ) {
-		$this->theme->updatePage( $url, $lang, $layout );
-	}*/
-
 	public function contentChanged( string $key, $data = null ) {
 		$this->theme->contentChanged( $key, $data );
 	}

@@ -73,16 +73,6 @@ class Logs extends Module {
 
 	}
 
-	/*public function onInit() {
-
-		if ( !is_dir( $this->logPath ) )
-			mkdir( $this->logPath );
-
-		if ( !is_file( $this->logFile ) )
-			touch( $this->logFile );
-
-	}*/
-
 	public function onTermination() {
 
 		if ( !has( $this->queue ) )
@@ -97,18 +87,11 @@ class Logs extends Module {
 		foreach ( $this->queue as $el )
 			$this->write( $el[0], substr( $el[1], 0, 200 ), $ip, $host, $referer, $userAgent, $el[2] );
 
+		// TODO: shoud we do this??
 		/*if ( php_sapi_name() === 'cli' ) {
 			$this->write( 'cli', '::1', 'local', $this->subArray( $_SERVER['argv'] ?? [] ), 'cli' );
 			return;
-		}
-
-		$ip = $_SERVER['REMOTE_ADDR'] ?? '::1';
-		// $https = ( $_SERVER['HTTPS'] ?? false ) ? 'https' : 'http';
-		$reqType = substr( $_SERVER['HTTP_REQ_TYPE'] ?? 'http', 0, 5 );
-		$host = substr( $_SERVER['HTTP_HOST'] ?? '', 0, 100 );
-		$uri = urldecode( substr( $_SERVER['REQUEST_URI'] ?? '', 0, 200 ) );
-		$userAgent = substr( $_SERVER['HTTP_USER_AGENT'], 0, 200 );
-		$this->write( $reqType, $ip, $host, $uri, $userAgent );*/
+		}*/
 
 	}
 

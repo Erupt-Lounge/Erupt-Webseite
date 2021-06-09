@@ -47,10 +47,6 @@ class ContentTable extends Table {
 
 	}
 
-	/*protected function liveSql() {
-		return $this->showOnlyLive() ? ' AND `state`=2' : '';
-	}*/
-
 	// CHECK
 	public function hasUrl( string $url, string $lang ) {
 		
@@ -328,20 +324,6 @@ class ContentTable extends Table {
 			'state' => $state
 		] );
 	}
-
-	/*public function countByPage( int $pId ) {
-
-		$sql = sprintf( 'SELECT COUNT(`ctnId`) as count FROM %s WHERE `pageId`=:i', $this->name );
-		$pre = $this->prepare( $sql );
-
-		$pre->bindParam( ':i', $pId, PDO::PARAM_INT );
-
-		if ( !$pre->execute() )
-			throw new Error( sprintf( 'Could not count content by pageId "%d"', $pId ) );
-
-		return (int) $pre->fetchObject()->count;
-
-	}*/
 
 
 	// DELETE

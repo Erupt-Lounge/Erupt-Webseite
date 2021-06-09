@@ -76,22 +76,6 @@ class DbLogs extends Table {
 
 	}
 
-	/*public function mostRated( int $lim = 5 ) {
-
-		// SELECT `uri`, COUNT(`uri`) as `count` FROM `logs` GROUP BY `uri`
-
-		$sql = sprintf( 'SELECT `uri`, COUNT(`uri`) as `count` FROM `%s` GROUP BY `uri` ORDER BY `count` DESC LIMIT :l', $this->name );
-		$pre = $this->prepare( $sql );
-
-		$pre->bindParam( ':l', $lim, PDO::PARAM_INT );
-
-		if ( !$pre->execute() )
-			throw new Error( sprintf( 'Could not get media in "%s" with lang "%s"', $this->name, $lang ) );
-
-		return $pre->fetchAll( PDO::FETCH_CLASS );
-
-	}*/
-
 	public function getAllLimit( int $limit ) {
 
 		$sql = sprintf( 'SELECT %s FROM `%s` ORDER BY `datetime` DESC LIMIT %d', $this->keys(), $this->name, (int) ( $limit <= 0 ? 100 : $limit ) );
@@ -119,29 +103,5 @@ class DbLogs extends Table {
 		return $pre->fetchAll( PDO::FETCH_CLASS );
 
 	}
-
-/*
-string(142) "SELECT `logId`, `datetime`, `uri`, `host` FROM `logs` WHERE `cat`=:cat AND `datetime` BETWEEN :endDate AND :startDate ORDER BY `datetime` DESC"
-string(3) "req"
-string(19) "2019-08-23 05:39:58"
-string(19) "2019-07-24 05:39:58"
-[true,0,{"total":15,"perDates":[["2019-08-23",15]],"perUri":["_dev\/zipp\/de\/kontakt\/",1]},"3.171 ms"]
-*/
-
-	/*
-				'logId' => 'INT UNSIGNED NOT NULL AUTO_INCREMENT',
-			// or maybe varchar
-			'cat' => 'VARCHAR(20) NOT NULL', // nulll if valid for every language
-			'datetime' => 'DATETIME NOT NULL',
-			'uri' => 'VARCHAR(200) NOT NULL',
-			'exTime' => 'FLOAT NOT NULL',
-			'mode' => 'VARCHAR(5) NOT NULL',
-			'host' => 'VARCHAR(50) NOT NULL',
-			'ip' => 'VARCHAR(39) NOT NULL',
-			'referer' => 'VARCHAR(100) NOT NULL',
-			'userAgent' => 'VARCHAR(200) NOT NULL',
-			'customLog' => 'TEXT NOT NULL' // here are the different alt data stored
-			*/
-
 
 }

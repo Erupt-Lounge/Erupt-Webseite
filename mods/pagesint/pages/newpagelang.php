@@ -105,18 +105,6 @@ class NewPageLang extends Page {
 		$newLang = $d->newLang;
 		$copyFrom = $d->copyFrom;
 
-		// var_dump( $newLang );
-
-
-		/*$page = [
-			'title' => '',
-			'url' => null,
-			'ctn' => '',
-			'state' => 1,
-			'publish' => now(),
-			'keywords' => ''
-		];*/
-
 		// maybe should add this as events
 		$this->mods->Themes->contentChanged( 'pagenewlang', $d );
 
@@ -126,49 +114,6 @@ class NewPageLang extends Page {
 			$this->mods->Pages->newPageLangCopy( $p, $newLang );
 
 		$req->ok( $newLang );
-
-		/*$lang = (string) ( $d->newpagelang ?? '' );
-
-		$l = $this->lang;
-
-		if ( !cLen( $lang, 2, 5 ) || $id <= 0 )
-			return $req->formError( $l->newPageLangInputError, $this->newNonce() );
-
-		$p = $this->mods->Pages;
-
-		if ( !$p->idExists( $id ) || $p->langExists( $id, $lang ) )
-			return $req->formError( $l->newPageLangExists, $this->newNonce() );
-
-		$p->newPageLang( $id, $lang );*/
-
-
-
-
-		// $req->formError( $l->errorNewPage, $this->newNonce() );
-
-		/*$fields = $this->fields();
-		$l = $this->lang;
-
-		$d = [];
-
-		foreach ( $fields as $f ) {
-
-			if ( !$f->validate( $req->data ) )
-				return $req->formError( sprintf( $l->newPageError, $f->name ), $this->newNonce() );
-
-			$d[$f->slug] = $f->out( $req->data );
-
-		}
-
-		$d = (object) $d;
-
-		$uId = $this->mods->Users->id;
-		$p = $this->mods->Pages->newPage( $d->layout, $uId, $d->lang );
-
-		if ( $p )
-			return $req->ok( $this->admin->bUrl( sprintf( 'pages/edit/%d/', $p ) ) );
-
-		$req->formError( $l->errorNewPage, $this->newNonce() );*/
 
 	}
 

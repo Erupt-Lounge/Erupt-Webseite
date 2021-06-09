@@ -108,8 +108,6 @@ class MediaEdit extends Page {
 			$data[$f->slug] = $f->out( $d );
 		}
 
-		// $data = (object) $data;
-
 		$sInt = $this->mods->SiteInt;
 		if ( $sInt->multilingual ) {
 			$lang = $data['lang'];
@@ -120,14 +118,6 @@ class MediaEdit extends Page {
 
 		$name = $data['name'];
 		unset( $data['name'] );
-
-		/*$itm = $this->mods->Media->getById( $id, $lang );
-
-		if ( !$itm )
-			return $req->formError( 'Media item not found', $this->newNonce() );*/
-
-		/*if ( $data->lang !== 'nulll' )
-			$lang = $data->lang;*/
 
 		$this->mods->Media->edit( $id, $lang, $data );
 

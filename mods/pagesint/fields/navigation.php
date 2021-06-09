@@ -38,20 +38,6 @@ class Navigation extends Field {
 		$this->resolveFull = ( $cfg->resolve ?? 'short' ) === 'full';
 	}
 
-	/*
-	this.lang = {
-		addBtn: 'Add Page',
-		selectTitle: 'Select Page',
-		selectBtn: 'Select',
-		selectCancel: 'Cancel',
-		deleteTitle: 'Confirm Deletion',
-		deleteMsg: 'Do you want to delete this Page?',
-		deleteBtn: 'Delete item',
-		deleteCancel: 'Cancel',
-		deleteDontShowAgain: 'Don\'t show again'
-	};
-	*/
-
 	protected function fillMissingLang( object $cfg ) {
 		return (object) [
 			'addBtn' => $cfg->addBtn ?? 'lang.addBtn',
@@ -60,14 +46,6 @@ class Navigation extends Field {
 			'selectCancel' => $cfg->selectCancel ?? 'lang.selectCancel'
 		];
 	}
-
-	/*public function __construct( string $slug, string $name, string $desc = null, array $pagesLayouts = null, array $settings = [] ) {
-		$this->slug = $slug;
-		$this->name = $name;
-		$this->desc = $desc;
-		$this->layouts = $pagesLayouts;
-		$this->sett = (object) $settings;
-	}*/
 
 	protected function getPages() {
 		$ly = null;
@@ -131,7 +109,6 @@ class Navigation extends Field {
 		$this->recuIds( $data, $ids );
 		$ids = array_keys( $ids );
 
-		// Pages::getAllPagesByLayouts( $this->layouts );
 		if ( $this->resolveFull )
 			$pages = Pages::getNavigationFullPagesByIds( $ids );
 		else
@@ -140,26 +117,6 @@ class Navigation extends Field {
 		// id => ctn
 
 		$nData = $this->recuData( $data, $pages )[0];
-
-		/*
-		$item {
-			title:
-			url:
-			childs: [ $item, $item ]
-		}
-
-		*/
-
-
-
-
-		/*$d = $this->getD( $data, '' );
-
-		if ( !cLen( $d ) )
-			return false;
-
-		$id = (int) substr( $d, 5 );
-		return $this->media->getById( $id );*/
 
 		return $nData;
 

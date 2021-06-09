@@ -61,9 +61,6 @@ class Media extends Module {
 
 	// the ext must exists in the above list
 	public static function checkExtCat( string $ext, string $cat ) {
-		/*$v = self::$allowedExts[$ext] ?? null;
-		if ( isNil( $v ) )
-			return $v;*/
 		return self::$allowedExts[$ext][0] === $cat;
 	}
 
@@ -79,12 +76,6 @@ class Media extends Module {
 	public static function getInstance() {
 		return KERNEL::getInstance( 'Media' );
 	}
-
-	/*public function onInit() {
-
-		$this->setupRouter();
-
-	}*/
 
 	// INSTANCE METHODS
 	public function getMediaUrl() {
@@ -128,14 +119,7 @@ class Media extends Module {
 	}
 
 	public function edit( int $id, string $lang, array $ctn ) {
-
-		/*$itm = $this->getById( $id );
-
-		if ( !$itm )
-			throw new Error( 'could not find Item to edit' );*/
-
 		$this->handler->update( $id, $lang, json_encode( $ctn ) );
-
 	}
 
 	public function new( string $name, string $type, int $size ) {

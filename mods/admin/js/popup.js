@@ -22,7 +22,6 @@ class PopUp {
 		if ( !r )
 			return;
 
-		console.log( r );
 		const h = await this.build( r );
 
 		c('body').be( this.coreBuild( h ) );
@@ -125,13 +124,6 @@ class PopUp {
 				this.close();
 			} );
 		}
-
-		/*c('.close-pop').o( 'click', e => {
-			e.preventDefault();
-
-			this.close();
-
-		} );*/
 
 	}
 

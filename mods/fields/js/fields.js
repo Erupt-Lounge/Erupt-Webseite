@@ -33,21 +33,6 @@ class Fields {
 
 	}
 
-	/*static convertTemplate( templ ) {
-
-		const type = templ.shift();
-		const slug = templ.shift();
-
-		if ( isNil( this.fields, type ) )
-			throw new Error( `could not find field ${ type } for a template` );
-
-		const field = new this.fields[type]( type, slug );
-		field.processTemplate( templ );
-
-		return field;
-
-	}*/
-
 	static register( type, fn ) {
 		this.fields[type] = fn;
 	}

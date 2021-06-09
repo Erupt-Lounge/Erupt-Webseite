@@ -33,7 +33,7 @@ class EditorField extends Field {
 	}
 
 	get html() {
-		console.log( 'need to implement for editor sett', this.sett );
+		console.log( 'TODO: need to implement editor settings', this.sett );
 
 		return `<div class="full-field">${ this.htmlInfo + this.htmlField }</div>`;
 
@@ -93,12 +93,14 @@ class EditorField extends Field {
 
 				}
 
-				console.log( 'action not found', el.dataset.edAction );
+				console.log( 'EDITOR: action not found', el.dataset.edAction );
 
 			} );
 		} );
 
 		this.editor.o( 'input', e => {
+
+			// TODO: check if we should do that
 
 			/*if ( editor.innerHTML === '' )
 				editor.innerHTML = '<p></p>';*/

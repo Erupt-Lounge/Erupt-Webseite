@@ -22,8 +22,6 @@ class Pages {
 
 	buildPage( p, url, layoutTitle ) {
 
-		console.log( p.langs );
-
 		return `
 <a href="${ url }${ p.id }" class="page" data-id="${ p.id }" title="${ p.id }">
 	<h2>${ esc( p.title ) }</h2>
@@ -167,8 +165,6 @@ class EditPage {
 
 	async on( r ) {
 
-		console.log( 'editPage', r );
-
 		const l = r.lang;
 
 		const mf = {};
@@ -305,14 +301,6 @@ class EditPage {
 			this.h1.h( esc( mf.title.value ) );
 		} );
 
-		// think well need to improve this??
-		/*el.o( 'input', e => { // should make this better
-			url.value = this.convertToUrl( el.value );
-			// this.urlChanged( mf, url.value );
-			h1.h( esc( el.value ) );
-			// preview link should be built here to????
-		} );*/
-
 	}
 
 	convertToUrl( str ) {
@@ -327,30 +315,14 @@ class EditPage {
 
 		this.buildViewLink( r, mf );
 
-		//const el = c(i( 'field-url' ));
-
-		// think well need to improve this??
-		/*el.o( 'change', e => {
-			this.urlChanged( mf, el.value );
-			// preview link should be built here to????
-		} );*/
-
-		// this.urlChanged( mf, el.value );
-
 	}
 
 	buildViewLink( r, mf ) {
 		const lang = r.multilingual ? `${ mf.lang.value }/` : '';
 		c('.view-link').href = coreUrl( lang + mf.url.value ).replace(/\/+$/, '') + '/';
-		console.log( mf.url );
 	}
 
 	listenOnSave( r ) {
-
-		/*c('.tp-act[data-action="save-page"]').o( 'click', e => {
-			e.preventDefault();
-			AjaxForms.submit( '.edit-page-form' );
-		} );*/
 
 		this.saveBtn.onClick( e => {
 			AjaxForms.submit( '.edit-page-form' );

@@ -53,9 +53,6 @@ class Site extends Module {
 
 		}
 
-		/*foreach ( $this->handler->getAllByKeys( $ks, $lang ) as $e )
-			$d[$e->key] = json_decode( $e->value );*/
-
 		return (object) $d;
 
 	}

@@ -3,30 +3,6 @@
 @version: 1.0 <2019-06-14>
 */
 
-/*.fields-grid
-	display: grid
-	grid-template-columns: 150px 1fr
-	grid-gap: 10px
-
-.single-repeat-fields
-	display: grid
-	grid-template-columns: 1fr 75px
-	grid-gap: 10px
-
-.single-repeat-fields .remove
-	display: block
-	text-align: right
-	cursor: pointer
-
-.rep-cont .add
-	display: block
-	margin-top: 10px
-	cursor: pointer
-
-label
-	font-weight: 600
-}*/
-
 .fields-grid
 	@grid
 	grid-template-columns: 200px 1fr
@@ -96,12 +72,6 @@ input[type="text"], input[type="number"], input[type="password"], input[type="em
 	.select-cont
 		margin-bottom: 0
 
-/*input[type="text"],
-input[type="password"]
-	
-	
-}*/
-
 // Text
 
 textarea
@@ -131,16 +101,6 @@ input[type="submit"]
 
 	+[disabled]
 		background-color: #eee
-
-/*input[type="submit"]
-	margin-top: 8px
-	margin-bottom: 0
-	background-color: #ea8484
-	color: #fff
-	cursor: pointer
-
-	+[disabled]
-		background-color: #eee*/
 
 // Checkbox
 .checkbox-cont

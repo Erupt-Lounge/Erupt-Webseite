@@ -64,11 +64,6 @@ class Table extends MagicGet {
 	// returns an string with every key
 	public function keys() {
 
-		// the foreach is around 4ms seconds faster in 10'000 rounds
-		/*$l = array_map( function( string $k ) {
-			return sprintf( '`%s`', $k );
-		}, array_keys( $this->fields ) );*/
-
 		$l = [];
 
 		foreach ( $this->fields as $k => $v )

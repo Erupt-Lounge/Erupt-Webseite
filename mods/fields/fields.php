@@ -41,13 +41,6 @@ class Fields extends Module {
 	}
 
 	// METHODS
-	/*public function style() {
-		return sprintf( '<link rel="stylesheet" href="%s.%s">', $this->url( $this->styleFile[0] ), $this->styleFile[1] );
-	}
-
-	public function script() {
-		return sprintf( '<script src="%s.js"></script>', $this->url( $this->scriptFile ) );
-	}*/
 
 	public function addField( string $key, string $cls ) {
 		$this->fields[lower($key)] = $cls;

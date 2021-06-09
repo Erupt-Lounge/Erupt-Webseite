@@ -46,22 +46,6 @@ class DbSite extends Table {
 		return $this->getAllByLang( 'nulll' );
 	}
 
-	/*public function getAllByKeys( array $ks, string $lang ) {
-
-		$sql = sprintf( 'SELECT %s FROM `%s` WHERE `lang`=:l AND `key` IN (%s)', $this->keys(), $this->name, $this->preIn( $ks ) );
-		$pre = $this->prepare( $sql );
-
-		$pre->bindParam( ':l', $lang, PDO::PARAM_STR );
-
-		$this->in( $pre, $ks );
-
-		if ( !$pre->execute() )
-			throw new Error( sprintf( 'Could not get data with lang "%s" and keys (%s)', $lang, implode( ', ', $ks ) ) );
-
-		return $pre->fetchAll( PDO::FETCH_CLASS );
-
-	}*/
-
 	public function set( string $k, string $value ) {
 		$this->setMl( $k, 'nulll', $value );
 	}

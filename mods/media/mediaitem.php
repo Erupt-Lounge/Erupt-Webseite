@@ -68,6 +68,7 @@ class MediaItem {
 	}
 
 	// resize and return path to media file
+	// TODO: add resize
 	// s = size
 	/*public function size( string $width, string $height = null ) {
 

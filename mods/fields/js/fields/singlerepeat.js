@@ -19,10 +19,6 @@ class SingleRepeat extends Field {
 
 	get htmlField() {
 
-		// initValue
-
-		// ${ this.htmlSlug }
-
 		const cls = addSrBtnCls( this.id );
 
 		return `
@@ -31,14 +27,6 @@ class SingleRepeat extends Field {
 			<div class="single-repeat-fields">${ this.fields.map( f => this.rendField( f ) ).join('') }</div>
 			<a href="" class="add ${ cls }"><span class="only-icon o-icon-add"></span>${ esc( this.add ) }</a>
 		</div>`;
-
-		/*
-		<div class="repeat-cont" id="${ this.id }">
-			<input type="hidden" name="${ this.slug }" value="${ esc( JSON.stringify( this.data ) ) }">
-			<div class="single-repeat-fields">${ this.fields.map( f => this.rendField( f ) ).join( '' ) }</div>
-			<a href="" class="add"><span class="only-icon o-icon-add"></span>${ esc( this.add ) }</a>
-		</div>
-		*/
 
 	}
 
@@ -99,35 +87,6 @@ class SingleRepeat extends Field {
 
 	}
 
-	/*listen() {
-
-		const cont = c(i( this.id )),
-			fields = cont.c( '.single-repeat-fields' );
-
-		this.fields.forEach( f => f.listen() );
-
-		// this doenst look good :)
-		cont.c( '.add' ).o( 'click', e => {
-			e.preventDefault();
-
-			const nField = this.templ.fill( null );
-			nField.onChanged( () => this.saveData() );
-
-			this.fields.push( nField );
-
-			fields.be( this.rendField( nField ) );
-
-			this.listenOnClose( c(`.sr-remove[data-id="${ nField.id }"]`) );
-			nField.listen();
-
-			this.saveData();
-
-		} );
-
-		fields.ca( '.sr-remove' ).c( el => this.listenOnClose( el ) );
-
-	}*/
-
 	// INIT
 	processData( data ) {
 		this.add = data.shift();
@@ -135,8 +94,6 @@ class SingleRepeat extends Field {
 
 		if ( isNil( this.initValue ) )
 			this.initValue = [];
-
-		console.log( 'initValue', this.initValue );
 
 		this.templField = this.getField( data.shift() );
 
@@ -162,81 +119,6 @@ class SingleRepeat extends Field {
 		field.dontRenderInfo = true;
 		return field.html + `<a href="" class="sr-remove only-icon o-icon-delete" title="${ esc( this.remove ) }" data-id="${ field.id }"></a>`;
 	}
-
-	/*render() {
-
-		this.fields = this.data.map( d => this.templ.fill( d ) );
-
-		this.fields.forEach( f => f.onChanged( () => this.saveData() ) );
-
-		return this.rendInfo() + `
-		<div class="repeat-cont" id="${ this.id }">
-			<input type="hidden" name="${ this.slug }" value="${ esc( JSON.stringify( this.data ) ) }">
-			<div class="single-repeat-fields">${ this.fields.map( f => this.rendField( f ) ).join( '' ) }</div>
-			<a href="" class="add"><span class="only-icon o-icon-add"></span>${ esc( this.add ) }</a>
-		</div>`;
-
-	}*/
-
-	/*saveData() {
-
-		const cont = c(i( this.id ));
-		const inp = cont.s(`[name="${ this.slug }"]`);
-
-		inp.value = JSON.stringify( this.fields.map( f => f.getValue() ) );
-
-	}*/
-
-	/*listen() {
-
-		const cont = c(i( this.id )),
-			fields = cont.c( '.single-repeat-fields' );
-
-		this.fields.forEach( f => f.listen() );
-
-		// this doenst look good :)
-		cont.c( '.add' ).o( 'click', e => {
-			e.preventDefault();
-
-			const nField = this.templ.fill( null );
-			nField.onChanged( () => this.saveData() );
-
-			this.fields.push( nField );
-
-			fields.be( this.rendField( nField ) );
-
-			this.listenOnClose( c(`.sr-remove[data-id="${ nField.id }"]`) );
-			nField.listen();
-
-			this.saveData();
-
-		} );
-
-		fields.ca( '.sr-remove' ).c( el => this.listenOnClose( el ) );
-
-	}*/
-
-	/*listenOnClose( el ) {
-		el.o( 'click', e => {
-			e.preventDefault();
-
-			const id = el.dataset.id;
-
-			el.previousElementSibling.remove();
-			el.remove();
-
-			// remove field from list
-			this.fields = this.fields.filter( f => id !== f.id );
-
-			// update the data reprensentation
-			this.saveData();
-
-		} );
-	}*/
-
-	/*getValue() {
-		return this.fields.map( f => f.getValue() );
-	}*/
 
 }
 Fields.register( 'singlerepeat', SingleRepeat );

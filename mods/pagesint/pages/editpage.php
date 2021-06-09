@@ -39,11 +39,6 @@ class EditPage extends Page {
 		if ( $pageId <= 0 )
 			return $this->error();
 
-		// $langs = $sInt->langs;
-
-		/*if ( !is_string( $lang ) && !isset( $langs[$lang] ) )
-			$lang = $sInt->getDefaultLang();*/
-
 		// this will return any existing page if the language isnt available
 		$p = $this->mods->Pages->getById( $pageId, $lang );
 
@@ -61,26 +56,6 @@ class EditPage extends Page {
 			$c->fields = $fd;
 
 		}
-
-		// langs
-		// $langDrop = $this->buildDrop( $p, $lang, $langs );
-
-		// $newLangDrop = $this->buildNewDrop( $p, $lang, $langs );
-
-		// $n = $this->mods->Nonce;
-
-		// $previewLink = $this->mods->Router->url( $lang. '/'. $p->url );
-
-		/*$delData = json_encode( [
-				'pageId' => $p->pageId,
-				'ctnId' => $p->ctnId,
-				'lang' => $lang,
-				'token' => $this->mods->Nonce->new( 'delpage' )
-			] );*/
-
-		/*$this->loadTempl( 'edit', [
-			
-		] );*/
 
 		// export main fields
 		$mf = [];
@@ -111,71 +86,6 @@ class EditPage extends Page {
 	protected function error() {
 		return $this->lang->pageIdUndefined;
 	}
-
-	/*protected function show( int $pageId, string $lang = null ) {
-
-		if ( $pageId <= 0 )
-			return $this->error();
-
-		$sInt = $this->mods->SiteInt;
-		$langs = $sInt->langs;
-
-		if ( !isNil( $lang ) && !isset( $langs[$lang] ) )
-			return $this->error();
-
-		if ( isNil( $lang ) )
-			$lang = $sInt->getDefaultLang();
-
-		// this will return any existing page if the language isnt available
-		$p = $this->mods->Pages->getById( $pageId, $lang );
-
-		if ( !$p )
-			return $this->error();
-
-		$t = $this->mods->Themes;
-
-		$comps = $t->getFieldsByLayout( $p->layout );
-		
-		foreach ( $comps as &$c ) {
-
-			$h = '';
-
-			foreach ( $c->fields as $f )
-				$h .= $f->render( $p );
-
-			$c->fields = $h;
-
-		}
-
-		// langs
-		$langDrop = $this->buildDrop( $p, $lang, $langs );
-
-		$newLangDrop = $this->buildNewDrop( $p, $lang, $langs );
-
-		$n = $this->mods->Nonce;
-
-		$previewLink = $this->mods->Router->url( $lang. '/'. $p->url );
-
-		$delData = json_encode( [
-				'pageId' => $p->pageId,
-				'ctnId' => $p->ctnId,
-				'lang' => $lang,
-				'token' => $this->mods->Nonce->new( 'delpage' )
-			] );
-
-		$this->loadTempl( 'edit', [
-			'page' => $p,
-			'comps' => $comps,
-			'mainF' => $this->mainFields(),
-			'langDrop' => $langDrop,
-			'newLangDrop' => $newLangDrop,
-			'previewLink' => $previewLink,
-			'delData' => $delData,
-			'newPageLangNonce' => $n->newForm( 'newpagelang' )
-		] );
-
-
-	}*/
 
 	public function onAjax( AjaxRequest $req ) {
 
@@ -247,31 +157,6 @@ class EditPage extends Page {
 		// now we need to parse the fields
 
 		$req->formOk( true, $this->newNonce() );
-		// $req->formError( $l->errorNewPage, $this->newNonce() );
-
-		/*$fields = $this->fields();
-		$l = $this->lang;
-
-		$d = [];
-
-		foreach ( $fields as $f ) {
-
-			if ( !$f->validate( $req->data ) )
-				return $req->formError( sprintf( $l->newPageError, $f->name ), $this->newNonce() );
-
-			$d[$f->slug] = $f->out( $req->data );
-
-		}
-
-		$d = (object) $d;
-
-		$uId = $this->mods->Users->id;
-		$p = $this->mods->Pages->newPage( $d->layout, $uId, $d->lang );
-
-		if ( $p )
-			return $req->ok( $this->admin->bUrl( sprintf( 'pages/edit/%d/', $p ) ) );
-
-		$req->formError( $l->errorNewPage, $this->newNonce() );*/
 
 	}
 
@@ -303,47 +188,6 @@ class EditPage extends Page {
 			new Time( 'publishOn', [ 'name' => $l->publishField ] )
 		];
 
-		// , 'desc' => 'if you need to overrite the existing keywords. This data should be changed automatically by Javascript.'
-
-		// pageid
-		// ctnid
-		// layout
-
-		// title
-		// url
-		// keywords
-		// state
-		// publishOn
-
 	}
-
-	/*protected function buildDrop( PagesPage $p, string $lang, array $langs ) {
-
-		$h = '';
-
-		if ( count( $p->langs ) === 1 )
-			return '';
-
-		foreach ( $p->langs as $l => $url )
-			$h .= sprintf( '<option value="%s"%s>%s</option>', $l, $l === $lang ? 'selected' : '', e( $langs[$l] ?? 'unknown' ) );
-
-		return sprintf( '<select class="page-lang-switch" name="page-lang" data-question="%s">%s</select>', $this->lang->questChangeLang, $h );
-
-	}
-
-	protected function buildNewDrop( PagesPage $p, string $lang, array $langs ) {
-
-		$h = '';
-
-		foreach ( $langs as $l => $n )
-			if ( !array_key_exists( $l, $p->langs ) ) // this because url could be null so isset doenst work :/
-				$h .= sprintf( '<option value="%s">%s</option>', $l, e( $n ) );
-
-		if ( !cLen( $h ) )
-			return '';
-
-		return sprintf( '<select class="new-page-lang" name="newpagelang">%s</select>', $h );
-
-	}*/
 
 }
