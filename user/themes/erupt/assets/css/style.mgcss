@@ -542,6 +542,7 @@ Events
 			height: 300px
 			overflow: hidden
 			background-size: cover
+			background-color: --dark
 			z-index: 1
 
 			a

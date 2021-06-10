@@ -20,7 +20,10 @@
 			|for event in events|
 
 			<div class="box |event.type|-event">
+				|img = event.header.bgImage|
+				|if img|
 				<img src="|event.header.bgImage.src()|">
+				|end|
 				<a href="|event.url|">
 					<div class="content">
 						<h2>|event.title|</h2>

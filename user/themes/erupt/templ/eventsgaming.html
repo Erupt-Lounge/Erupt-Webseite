@@ -10,7 +10,10 @@
 		|if event.type == 'gaming' && count < 3|
 		|count += 1|
 		<div class="box">
+			|img = event.header.bgImage|
+			|if img|
 			<img src="|event.header.bgImage.src()|">
+			|end|
 			<a href="|event.url|">
 				<div class="content">
 					<h2>|event.title|</h2>
