@@ -139,6 +139,10 @@ layouts
 				type: Textarea
 				name: 'previewText
 
+			eventDate
+				type: Time
+				name: 'eventDate
+
 			dark
 				type: Checkbox
 				name: 'switchDark
