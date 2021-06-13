@@ -17,7 +17,7 @@
 			|end|
 			<a href="|event.url|">
 				<div class="content">
-					<h2>|event.title|</h2>
+					<h2>|if event.ctn.eventDate and !is_string( event.ctn.eventDate )||event.eventDate.format('d.m.')||end| |event.title|</h2>
 					<span></span>
 					<p>|replace "\n", '<br>', esc( event.previewText )|</p>
 				</div>

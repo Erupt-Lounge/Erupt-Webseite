@@ -25,6 +25,8 @@ class Erupt extends Theme {
 
             if ($inA->$key instanceof DateTime) {
                 $outA = $inA->$key->format("U");
+            } else if ($inA == '') {
+                $outA = -1;
             } else if (is_string($inA->$key)) {
                 $outA = $inA->$key;
             } else if (!is_string($inA->$key) && is_string(strval($inA->$key))) {
@@ -34,6 +36,8 @@ class Erupt extends Theme {
             }
             if ($inB->$key instanceof DateTime) {
                 $outB = $inB->$key->format("U");
+            } else if ($inB == '') {
+                $outB = -1;
             } else if (is_string($inB->$key)) {
                 $outB = $inB->$key;
             } else if (!is_string($inB->$key) && is_string(strval($inB->$key))) {
@@ -41,20 +45,21 @@ class Erupt extends Theme {
             } else {
                 $outB = 0;
             }
+
             $result = strnatcmp($outA, $outB);
             $result = $flip ? ($result * -1) : $result;
             return $result;
         };
     }
 
-    public function ctnSort($pages, string $order, string $field) {
-
+    public function ctnSort(array &$pages, string $order, string $field) {
+        if (!is_array($pages)) $pages = array($pages);
         if ($order == 'random') {
-            return shuffle($array);
+            shuffle($pages);
         } else if ($order == 'ascending') {
-            return usort($pages, $this->build_sorter($field, false));
+            usort($pages, $this->build_sorter($field, true));
         } else if ($order == null || $order == 'descending') {
-            return usort($pages, $this->build_sorter($field, true));
+            usort($pages, $this->build_sorter($field, false));
         }
     }
 
