@@ -6,6 +6,7 @@
 
 namespace Erupt;
 
+use DateTime;
 use Themes\Theme;
  use Fields\Validator;
 
@@ -18,6 +19,44 @@ class Erupt extends Theme {
 		$this->loadConfig();
 
 	}
+
+    function build_sorter($key, $flip) {
+        return function ($inA, $inB) use ($key, $flip) {
+
+            if ($inA->$key instanceof DateTime) {
+                $outA = $inA->$key->format("U");
+            } else if (is_string($inA->$key)) {
+                $outA = $inA->$key;
+            } else if (!is_string($inA->$key) && is_string(strval($inA->$key))) {
+                $outA = strval($inA->$key);
+            } else {
+                $outA = 0;
+            }
+            if ($inB->$key instanceof DateTime) {
+                $outB = $inB->$key->format("U");
+            } else if (is_string($inB->$key)) {
+                $outB = $inB->$key;
+            } else if (!is_string($inB->$key) && is_string(strval($inB->$key))) {
+                $outB = strval($inB->$key);
+            } else {
+                $outB = 0;
+            }
+            $result = strnatcmp($outA, $outB);
+            $result = $flip ? ($result * -1) : $result;
+            return $result;
+        };
+    }
+
+    public function ctnSort($pages, string $order, string $field) {
+
+        if ($order == 'random') {
+            return shuffle($array);
+        } else if ($order == 'ascending') {
+            return usort($pages, $this->build_sorter($field, false));
+        } else if ($order == null || $order == 'descending') {
+            return usort($pages, $this->build_sorter($field, true));
+        }
+    }
 
 	public function handleContact() {
 

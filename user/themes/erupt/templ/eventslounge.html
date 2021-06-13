@@ -4,8 +4,9 @@
 
 	<div id="event-wrapper" class="wrapper">
 
-		|events = newQuery().byLayouts(['event']).orderDesc('publishOn').full()|
+		|events = newQuery().byLayouts(['event']).full()|
 		|count = 0|
+		|theme.ctnSort( events, 'descending', 'eventDate')|
 		|for event in events|
 		|if event.type == 'lounge' && count < 3|
 		|count += 1|
