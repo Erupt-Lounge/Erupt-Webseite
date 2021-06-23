@@ -235,6 +235,11 @@ layouts
 			mailTo
 				name: 'contactMailTo
 
+			successPage
+				type: Page
+				name: 'successPage
+				layouts -a: modpage
+
 			dark
 				type: Checkbox
 				name: 'switchDark

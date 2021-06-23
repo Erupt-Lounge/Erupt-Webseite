@@ -8,7 +8,7 @@ namespace Erupt;
 
 use DateTime;
 use Themes\Theme;
- use Fields\Validator;
+use Fields\Validator;
 
 class Erupt extends Theme {
 
@@ -116,9 +116,9 @@ class Erupt extends Theme {
 
 		//$str = $ctn->confMessage;
 		$str = '<b>Kontaktformular</b><br><br>';
-		$str .= mailField( $ctn->lastname, $form->lastname );
-		$str .= mailField( $ctn->firstname, $form->firstname );
-		$str .= mailField( $ctn->email, $form->email );
+		$str .= '<b>'. e( $ctn->lastname ). ': </b>' . e( $form->lastname ). '<br>';
+		$str .= '<b>'. e( $ctn->firstname ). ': </b>' . e( $form->firstname ). '<br>';
+		$str .= '<b>'. e( $ctn->email ). ': </b>'. e( $form->email ). '<br><br>';
 		$str .= '<br><b>'. e( $ctn->message ). '</b><br>';
 		$str .= str_replace( "\n", '<br>', e( $form->message ) );
 
