@@ -32,7 +32,10 @@
 				|for sponsor in ctn.logosGrid|
 					
 					<a href="|sponsor.link|" target="_BLANK" class="logo">
-						<img src="|sponsor.Image.src()|">
+						|if sponsor.Image|
+							|sponsor.Image.setLang( page.lang )|
+							|sponsor.Image.tag()|
+						|end|
 					</a>
 
 				|end|
