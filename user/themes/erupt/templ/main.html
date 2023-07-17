@@ -10,6 +10,7 @@
 
 	<meta name="description" content="Die Erupt AG befasst sich mit der Förderung und Entwicklung von E-Sport in der Schweiz mit Schwerpunkt; Raum Bern.">
 	<meta name="keywords" content="Erupt,Lounge,Bern,Game,Gaming,Drinks,Bar,Kultur,Lokal,Veranstaltungen,Events">
+	<meta http-equiv="refresh" content="1440" >
 
 	<link rel="apple-touch-icon" sizes="57x57" href="|theme.url('assets/img/favicon/apple-icon-57x57.png')|">
 	<link rel="apple-touch-icon" sizes="60x60" href="|theme.url('assets/img/favicon/apple-icon-60x60.png')|">
@@ -151,12 +152,15 @@
 		<h4>|esc main.copyrightText| |date('Y')|</h4>
 
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HP551WJK1"></script>
+
 	|for asset in assets( 'js' )|
 		<script type="text/javascript" src="|asset|"></script>
 	|end|
+
 	|out 'scripts'|
-	<script type="text/javascript" src="|theme.url('assets/js/analytics.js')|"></script>
 
 </body>
 </html>

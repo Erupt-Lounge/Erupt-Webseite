@@ -1,3 +1,5 @@
+
+
 RewriteEngine On
 
 ### WWW START ###
@@ -24,7 +26,11 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # @package: Zipp
 # @version: 0.2.1 <2019-08-07>
 # @installedOn: <2021-01-29>
-RewriteCond %{REQUEST_URI} !\.(css|js|map|mjs|ico|png|jpg|svg|gif|mp3|wav|ogg|mp4|mov|ogv|doc|docx|txt|rtf|pdf|ttf|otf|woff|woff2|eot|zip|rar|gz|xml|json)$
+RewriteCond %{REQUEST_URI} !\.(css|js|map|mjs|ico|png|jpg|svg|gif|mp3|wav|ogg|mp4|mov|ogv|doc|docx|txt|rtf|pdf|ttf|otf|woff|woff2|eot|zip|rar|gz|xml|json|vcf)$
 RewriteRule .* index.php [L]
 
+
+RewriteCond %{HTTP_HOST} ^erupt\.ch$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.erupt\.ch$
+RewriteRule ^user\/media\/Menükarte\.pdf\/?(.*)$ "https\:\/\/www\.erupt\.ch\/user\/media\/menükarte\.pdf$1" [R=301,L]
 

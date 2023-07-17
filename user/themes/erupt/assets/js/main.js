@@ -1,5 +1,11 @@
-// Burger
+// Analytics...
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
+gtag('config', 'G-5HP551WJK1');
+
+// Burger
 const burger = document.getElementsByClassName( "burger" )[0];
 
 burger.onclick = function() {
